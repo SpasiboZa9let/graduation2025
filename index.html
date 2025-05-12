@@ -4,23 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Выпускной</title>
-    <link rel="stylesheet" href="style.css">
+
+    <!-- Подключение шрифтов -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins :wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Подключение Animate.css для анимаций -->
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css "
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css "
+    />
+
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Фоновое видео -->
+    <video autoplay muted loop id="backgroundVideo">
+        <source src="background.mp4" type="video/mp4">
+    </video>
+
+    <!-- Основной контент -->
     <div class="container">
+        <!-- Заголовок с анимацией -->
         <h1 class="animate__animated animate__fadeInDown">Добро пожаловать на выпускной!</h1>
+
+        <!-- Описание с анимацией -->
         <p class="description animate__animated animate__fadeInUp">Введите свою фамилию:</p>
+
+        <!-- Форма с анимацией -->
         <form id="accessForm" class="form animate__animated animate__fadeIn">
             <input type="text" id="surname" placeholder="Фамилия" required>
             <button type="submit">Перейти</button>
         </form>
+
+        <!-- Контейнер для видео -->
         <div id="videoContainer"></div>
     </div>
 
+    <!-- Подключение JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
