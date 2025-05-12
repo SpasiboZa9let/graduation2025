@@ -11,12 +11,12 @@ document.getElementById('accessForm').addEventListener('submit', function(event)
     const surname = document.getElementById('surname').value.toLowerCase(); // Получаем введенную фамилию
 
     if (students[surname]) {
-        // Если фамилия найдена, показываем видео
-        document.getElementById('videoContainer').innerHTML = `
-            <iframe width="560" height="315" src="${students[surname]}" frameborder="0" allowfullscreen></iframe>
+        // Если фамилия найдена, показываем видео с анимацией
+        const videoContainer = document.getElementById('videoContainer');
+        videoContainer.innerHTML = `
+            <iframe class="animate__animated animate__zoomIn" width="560" height="315" src="${students[surname]}" frameborder="0" allowfullscreen></iframe>
         `;
     } else {
-        // Если фамилия не найдена, выводим сообщение об ошибке
         alert('Фамилия не найдена. Попробуйте снова.');
     }
 });
