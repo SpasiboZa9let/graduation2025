@@ -29,6 +29,30 @@ const students = {
     "чупрова": "videos/chuprova.mp4"
 };
 
+// Настройка фоновой музыки
+const backgroundMusic = document.getElementById('backgroundMusic');
+const muteButton = document.getElementById('muteButton');
+
+// Флаг для управления звуком
+let isMuted = false;
+
+// Воспроизводим музыку при загрузке страницы
+backgroundMusic.volume = 0.5; // Устанавливаем громкость (50%)
+backgroundMusic.play();
+
+// Кнопка управления звуком
+muteButton.addEventListener('click', () => {
+    if (isMuted) {
+        backgroundMusic.play();
+        muteButton.textContent = 'Выключить звук';
+    } else {
+        backgroundMusic.pause();
+        muteButton.textContent = 'Включить звук';
+    }
+    isMuted = !isMuted;
+});
+
+// Обработка формы
 document.getElementById('accessForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Отменяем отправку формы
 
@@ -42,7 +66,7 @@ document.getElementById('accessForm').addEventListener('submit', function(event)
     if (students[surname]) {
         // Если фамилия найдена, показываем видео с анимацией
         videoContainer.innerHTML = `
-            <video class="animate__animated animate__zoomIn" width="100%" controls>
+            <video class="animate__animated animate__zoomIn" width="100%" controls onplay="pauseBackgroundMusic()" onpause="resumeBackgroundMusic()">
                 <source src="${students[surname]}" type="video/mp4">
                 Ваш браузер не поддерживает воспроизведение видео.
             </video>
@@ -53,6 +77,15 @@ document.getElementById('accessForm').addEventListener('submit', function(event)
         greeting.textContent = `Привет, ${surname.charAt(0).toUpperCase() + surname.slice(1)}!`;
         greeting.classList.add('greeting', 'animate__animated', 'animate__fadeIn');
         videoContainer.prepend(greeting);
+
+        // При начале воспроизведения видео останавливаем фоновую музыку
+        const videoElement = videoContainer.querySelector('video');
+        videoElement.onplay = () => {
+            backgroundMusic.pause();
+        };
+        videoElement.onpause = () => {
+            backgroundMusic.play();
+        };
 
         // Сбрасываем поле ввода
         inputField.value = '';
