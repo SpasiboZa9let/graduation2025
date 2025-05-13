@@ -4,10 +4,7 @@ const MAX_ATTEMPTS = 3;
 
 // Инициализация данных
 let students = {};
-fetch('students.json')
-    .then(response => response.json())
-    .then(data => students = data)
-    .catch(error => console.error('Ошибка загрузки данных:', error));
+let studentsLoaded = false;
 
 // Элементы
 const form = document.getElementById('accessForm');
@@ -18,6 +15,20 @@ const muteButton = document.getElementById('muteButton');
 
 // Состояние звука
 let isMuted = false;
+
+// Загрузка данных студентов при фокусе на поле ввода
+input.addEventListener('focus', async () => {
+    if (!studentsLoaded) {
+        try {
+            students = await fetch('students.json').then(response => response.json());
+            studentsLoaded = true;
+            console.log('Данные студентов загружены.');
+        } catch (error) {
+            console.error('Ошибка загрузки данных студентов:', error);
+            alert('Произошла ошибка при загрузке данных. Попробуйте позже.');
+        }
+    }
+});
 
 // Обработчик отправки формы
 form.addEventListener('submit', async (event) => {
@@ -49,6 +60,7 @@ form.addEventListener('submit', async (event) => {
         video.addEventListener('canplay', () => {
             video.style.opacity = 1;
             video.play();
+            addShareButton(video.src); // Добавляем кнопку "Поделиться"
         });
 
     } catch (error) {
@@ -106,3 +118,28 @@ muteButton.addEventListener('click', () => {
 document.querySelectorAll('button').forEach(btn => {
     btn.addEventListener('touchstart', () => {});
 });
+
+// Кнопка "Поделиться"
+function addShareButton(videoUrl) {
+    if (navigator.share) {
+        const shareButton = document.createElement('button');
+        shareButton.textContent = 'Поделиться';
+        shareButton.style.marginTop = '10px';
+        shareButton.style.padding = '10px 20px';
+        shareButton.style.background = '#ff6f61';
+        shareButton.style.color = 'white';
+        shareButton.style.border = 'none';
+        shareButton.style.borderRadius = '5px';
+        shareButton.style.cursor = 'pointer';
+
+        shareButton.addEventListener('click', () => {
+            navigator.share({
+                title: 'Выпускной 2025',
+                text: 'Посмотрите моё персональное поздравление!',
+                url: videoUrl || window.location.href,
+            });
+        });
+
+        videoContainer.appendChild(shareButton);
+    }
+}
