@@ -63,23 +63,8 @@ if (document.getElementById('accessForm')) {
 
         const form = document.getElementById('accessForm');
         const surnameInput = document.getElementById('surname');
-        const suggestionsContainer = document.getElementById('suggestions');
         const videoContainer = document.getElementById('videoContainer');
         const spinner = document.getElementById('spinner');
-
-        // Автокомплит фамилий
-        surnameInput.addEventListener('input', () => {
-            const inputValue = surnameInput.value.toLowerCase();
-            const availableNames = Object.keys(students).filter(name => name.startsWith(inputValue));
-
-            if (availableNames.length > 0) {
-                suggestionsContainer.textContent = `Доступные фамилии: ${availableNames.join(', ')}`;
-                suggestionsContainer.classList.add('active');
-            } else {
-                suggestionsContainer.textContent = '';
-                suggestionsContainer.classList.remove('active');
-            }
-        });
 
         // Обработка отправки формы
         form.addEventListener('submit', (e) => {
@@ -91,6 +76,7 @@ if (document.getElementById('accessForm')) {
 
             if (students[surname]) {
                 const student = students[surname];
+                console.log('Найден студент:', student); // Отладочное сообщение
 
                 // Создаем заголовок с именем студента
                 const greeting = document.createElement('h2');
@@ -106,12 +92,14 @@ if (document.getElementById('accessForm')) {
 
                 // Обработка события "canplay" (видео готово к воспроизведению)
                 video.addEventListener('canplay', () => {
+                    console.log('Видео успешно загружено:', video.src); // Отладочное сообщение
                     spinner.style.display = 'none'; // Скрываем спиннер
                     launchConfetti(); // Запускаем анимацию конфетти
                 });
 
                 // Обработка ошибок загрузки видео
                 video.addEventListener('error', () => {
+                    console.error('Ошибка загрузки видео:', video.src); // Отладочное сообщение
                     spinner.style.display = 'none';
                     alert(`Видео для ${student.name} не найдено.`);
                 });
