@@ -19,63 +19,32 @@
 
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 20px;
+            padding: 20px;
             width: 90%;
-            max-width: 1200px;
         }
 
-        .gallery-item {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 10px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-
-        .gallery-item img {
+        .gallery img {
             width: 100%;
-            height: 150px;
+            height: 200px;
             object-fit: cover;
             border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
         }
 
-        .gallery-item h3 {
-            font-size: 16px;
-            margin: 10px 0 0;
+        .gallery img:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
-    <div class="gallery" id="gallery"></div>
-
-    <script>
-        // Получаем список изображений из папки images
-        const images = [
-            "images/photo1.jpg",
-            "images/photo2.jpg",
-            "images/photo3.jpg",
-            // Добавьте пути к вашим изображениям
-        ];
-
-        const gallery = document.getElementById('gallery');
-
-        images.forEach((image, index) => {
-            const item = document.createElement('div');
-            item.className = 'gallery-item';
-
-            item.innerHTML = `
-                <img src="${image}" alt="Фото ${index + 1}">
-                <h3>Фото ${index + 1}</h3>
-            `;
-
-            gallery.appendChild(item);
-        });
-    </script>
+    <div class="gallery">
+        <img src="images/photo1.jpg" alt="Фото 1">
+        <img src="images/photo2.jpg" alt="Фото 2">
+        <img src="images/photo3.jpg" alt="Фото 3">
+        <!-- Добавляйте сюда новые изображения -->
+    </div>
 </body>
 </html>
