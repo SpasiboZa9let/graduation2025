@@ -1,68 +1,20 @@
-// Управление фоновой музыкой
-document.addEventListener('DOMContentLoaded', () => {
-    const backgroundMusic = document.getElementById('backgroundMusic');
-    const muteButton = document.getElementById('muteButton');
-
-    if (backgroundMusic) {
-        backgroundMusic.play().catch(() => {
-            console.warn('Фоновая музыка заблокирована браузером.');
-        });
+// Загрузка данных студентов
+let students = {};
+async function loadStudents() {
+    try {
+        const response = await fetch('students.json');
+        if (!response.ok) {
+            throw new Error('Ошибка загрузки данных');
+        }
+        students = await response.json();
+    } catch (error) {
+        console.error('Ошибка:', error.message);
+        alert('Не удалось загрузить данные.');
     }
-
-    if (muteButton) {
-        let isMuted = false;
-        muteButton.addEventListener('click', () => {
-            isMuted = !isMuted;
-            backgroundMusic.muted = isMuted;
-            muteButton.textContent = isMuted ? '🔊' : '🔇';
-        });
-    }
-});
-
-// Таймер обратного отсчета
-function updateCountdown() {
-    const eventDate = new Date('2025-05-25T18:00:00').getTime(); // Дата мероприятия
-    const now = new Date().getTime();
-    const distance = eventDate - now;
-
-    if (distance > 0) {
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-        document.getElementById('days')?.innerText = String(days).padStart(2, '0');
-        document.getElementById('hours')?.innerText = String(hours).padStart(2, '0');
-        document.getElementById('minutes')?.innerText = String(minutes).padStart(2, '0');
-    } else {
-        // Если время истекло
-        document.querySelector('.countdown-container')?.innerHTML = '<h2>Мероприятие началось!</h2>';
-    }
-}
-
-// Запускаем таймер при загрузке страницы
-if (document.querySelector('.countdown-container')) {
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
 }
 
 // Логика формы поздравления
 if (document.getElementById('accessForm')) {
-    let students = {};
-
-    // Загрузка данных студентов
-    async function loadStudents() {
-        try {
-            const response = await fetch('students.json');
-            if (!response.ok) {
-                throw new Error('Ошибка загрузки данных');
-            }
-            students = await response.json();
-        } catch (error) {
-            console.error('Ошибка:', error.message);
-            alert('Не удалось загрузить данные.');
-        }
-    }
-
     document.addEventListener('DOMContentLoaded', () => {
         loadStudents();
 
