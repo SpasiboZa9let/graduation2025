@@ -5,33 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Выпускной 2025</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins :wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css ">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Фоновая музыка -->
     <audio id="backgroundMusic" loop>
         <source src="audio/background-music.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Кнопки управления -->
-    <button id="galleryButton" class="gallery-btn" aria-label="Архив фото"></button>
-    <button id="muteButton" class="mute-btn" aria-label="Звук">🔇</button>
+    <!-- Кнопка управления звуком -->
+    <button id="muteButton" class="control-btn">🔇</button>
 
-    <!-- Основной контент -->
-    <div class="container animate__animated animate__fadeIn">
-        <h1>Добро пожаловать!</h1>
-        <form id="accessForm">
-            <div class="input-group">
-                <input 
-                    type="text" 
-                    id="surname" 
-                    placeholder="Фамилия" 
-                    autocomplete="off"
-                    aria-label="Введите фамилию"
-                    required
-                >
-            </div>
-            <button type="submit">Получить поздравление</button>
+    <!-- Главный экран -->
+    <div class="hero">
+        <h1 class="title">🎉 Наконец-то выпускной! 🎉</h1>
+        <div class="bell-animation">🛎️</div>
+        
+        <div class="buttons">
+            <a href="#accessForm" class="btn primary-btn">Получить поздравление</a>
+            <a href="gallery.html" class="btn secondary-btn">Архив фото</a>
+        </div>
+    </div>
+
+    <!-- Форма доступа -->
+    <div class="container" id="accessForm">
+        <h2>Введите свою фамилию:</h2>
+        <form>
+            <input type="text" id="surname" placeholder="Фамилия" autocomplete="off">
+            <button type="submit">Показать видео</button>
         </form>
         <div id="videoContainer"></div>
     </div>
