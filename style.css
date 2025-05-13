@@ -1,16 +1,79 @@
-/* Основные стили */
-body {
+/* Общие стили */
+* {
     margin: 0;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
     color: white;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
 
+/* Главная страница */
+.hero {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.title {
+    font-size: 2.5em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.bell-animation {
+    font-size: 3em;
+    animation: ring 1s ease-in-out infinite;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+    text-decoration: none;
+    color: white;
+    border: none;
+}
+
+.primary-btn {
+    background: #ff6f61;
+}
+
+.secondary-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid white;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+.primary-btn:hover {
+    background: #e55c51;
+}
+
+.secondary-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Кнопка возврата */
 .back-btn {
     position: fixed;
     top: 20px;
@@ -23,15 +86,15 @@ body {
     cursor: pointer;
     text-decoration: none;
     font-size: 16px;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease;
     z-index: 1000;
 }
 
 .back-btn:hover {
     background: rgba(0, 0, 0, 0.8);
-    transform: scale(1.1);
 }
 
+/* Форма */
 .form-container {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
@@ -41,13 +104,11 @@ body {
     width: 100%;
     max-width: 500px;
     text-align: center;
-    animation: fadeIn 1s ease-in-out;
 }
 
 .form-title {
     font-size: 1.8em;
-    margin-bottom: 20px;
-    animation: bounceIn 1s ease-in-out;
+    margin-bottom: 30px;
 }
 
 .input-group {
@@ -63,12 +124,12 @@ input {
     background: transparent;
     color: white;
     font-size: 16px;
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease;
 }
 
 input:focus {
     outline: none;
-    border-bottom-color: #ff6f61;
+    border-color: #ff6f61;
 }
 
 .input-border {
@@ -103,14 +164,37 @@ input:focus + .input-border {
     transform: scale(1.05);
 }
 
-/* Анимации */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* Галерея */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
 }
 
-@keyframes bounceIn {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-20px); }
-    60% { transform: translateY(-10px); }
+.gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Анимации */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes ring {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-15deg); }
+    75% { transform: rotate(15deg); }
 }
