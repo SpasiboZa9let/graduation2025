@@ -1,20 +1,4 @@
-// Загрузка данных студентов
-let students = {};
-let isDataLoaded = false;
-
-async function loadStudents() {
-    try {
-        const response = await fetch('students.json');
-        if (!response.ok) throw new Error('Ошибка загрузки данных');
-        students = await response.json();
-        isDataLoaded = true;
-    } catch (error) {
-        alert('Не удалось загрузить данные студентов');
-        console.error(error);
-    }
-}
-
-// Управление звуком
+// Фоновая музыка
 const backgroundMusic = document.getElementById('backgroundMusic');
 const muteButton = document.getElementById('muteButton');
 
@@ -31,7 +15,7 @@ if (muteButton) {
     });
 }
 
-// Таймер обратного отсчёта
+// Таймер
 const countdownDate = new Date("June 15, 2025 18:00:00").getTime();
 
 setInterval(() => {
@@ -55,75 +39,72 @@ setInterval(() => {
 
 // Форма поздравления
 if (document.getElementById('accessForm')) {
+    let students = {};
+
+    async function loadStudents() {
+        try {
+            const response = await fetch('students.json');
+            students = await response.json();
+        } catch (error) {
+            alert('Ошибка загрузки данных!');
+        }
+    }
+
     loadStudents();
 
-    const form = document.getElementById('accessForm');
-    const surnameInput = document.getElementById('surname');
-    const suggestions = document.getElementById('suggestions');
-    const spinner = document.getElementById('spinner');
-    const videoContainer = document.getElementById('videoContainer');
-
-    form.addEventListener('submit', (e) => {
+    document.getElementById('accessForm').addEventListener('submit', async (e) => {
         e.preventDefault();
+        const surname = document.getElementById('surname').value.toLowerCase().trim();
+        const spinner = document.getElementById('spinner');
+        const videoContainer = document.getElementById('videoContainer');
 
-        if (!isDataLoaded) {
-            alert('Данные загружаются...');
-            return;
-        }
-
-        const surname = surnameInput.value.toLowerCase().trim();
         spinner.style.display = 'block';
         videoContainer.innerHTML = '';
 
-        if (students[surname]) {
-            const student = students[surname];
-            const greeting = document.createElement('h2');
-            greeting.textContent = `Привет, ${student.name}!`;
-            greeting.className = 'greeting-title';
+        try {
+            if (students[surname]) {
+                const student = students[surname];
+                
+                const greeting = document.createElement('h2');
+                greeting.textContent = `🎉 Привет, ${student.name}! 🎉`;
+                greeting.className = 'greeting-title';
 
-            const video = document.createElement('video');
-            video.src = student.video;
-            video.controls = true;
-            video.style.width = '100%';
-            video.style.borderRadius = '10px';
+                const video = document.createElement('video');
+                video.src = student.video;
+                video.controls = true;
+                video.style.width = '100%';
+                video.style.borderRadius = '10px';
 
-            video.addEventListener('canplay', () => {
-                spinner.style.display = 'none';
-                confetti({
-                    particleCount: 100,
-                    spread: 70,
-                    origin: { y: 0.6 }
+                video.addEventListener('canplay', () => {
+                    spinner.style.display = 'none';
+                    confetti({
+                        particleCount: 100,
+                        spread: 70,
+                        origin: { y: 0.6 }
+                    });
                 });
-            });
 
-            video.addEventListener('error', () => {
-                spinner.style.display = 'none';
-                alert('Ошибка загрузки видео');
-            });
-
-            videoContainer.append(greeting, video);
-            surnameInput.value = '';
-        } else {
+                videoContainer.append(greeting, video);
+                document.getElementById('surname').value = '';
+            } else {
+                throw new Error('Фамилия не найдена');
+            }
+        } catch (error) {
             spinner.style.display = 'none';
-            alert('Фамилия не найдена');
+            alert(error.message);
         }
     });
 
-    surnameInput.addEventListener('input', () => {
-        if (!isDataLoaded) return;
-
-        const inputValue = surnameInput.value.toLowerCase();
-        const matches = Object.keys(students).filter(name => 
-            name.startsWith(inputValue)
-        );
-        
-        suggestions.textContent = matches.length > 0 
+    document.getElementById('surname').addEventListener('input', () => {
+        const inputValue = document.getElementById('surname').value.toLowerCase();
+        const matches = Object.keys(students).filter(name => name.startsWith(inputValue));
+        document.getElementById('suggestions').textContent = matches.length > 0 
             ? `Доступные фамилии: ${matches.join(', ')}` 
             : '';
     });
 }
 
-// Галерея фото
+// Галерея
 if (document.querySelector('.gallery-grid')) {
     const galleryData = [
         { id: 1, src: 'images/photo1.jpg', alt: 'Фото 1' },
@@ -139,20 +120,19 @@ if (document.querySelector('.gallery-grid')) {
         galleryGrid.innerHTML = '';
 
         galleryData.forEach(photo => {
-            const photoItem = document.createElement('div');
-            photoItem.className = 'photo-item';
+            const photoContainer = document.createElement('div');
+            photoContainer.className = 'photo-item';
 
             const img = document.createElement('img');
             img.src = photo.src;
             img.alt = photo.alt;
-            img.loading = 'lazy';
-
-            const commentsSection = document.createElement('div');
-            commentsSection.className = 'comments-section';
+            img.style.width = '100%';
+            img.style.borderRadius = '10px';
 
             const likeBtn = document.createElement('button');
             likeBtn.className = 'like-btn';
             likeBtn.textContent = `❤️ ${likes[photo.id] || 0}`;
+            
             likeBtn.addEventListener('click', () => {
                 likes[photo.id] = (likes[photo.id] || 0) + 1;
                 localStorage.setItem('likes', JSON.stringify(likes));
@@ -161,8 +141,9 @@ if (document.querySelector('.gallery-grid')) {
 
             const commentInput = document.createElement('input');
             commentInput.type = 'text';
-            commentInput.className = 'comment-input';
             commentInput.placeholder = 'Комментарий...';
+            commentInput.className = 'comment-input';
+
             commentInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
                     const commentText = e.target.value.trim();
@@ -170,32 +151,33 @@ if (document.querySelector('.gallery-grid')) {
                         comments[photo.id] = comments[photo.id] || [];
                         comments[photo.id].push(commentText);
                         localStorage.setItem('comments', JSON.stringify(comments));
-                        e.target.value = '';
-                        renderComments(photoItem, photo.id);
+                        commentInput.value = '';
+                        renderComments(photoContainer, photo.id);
                     }
                 }
             });
 
             function renderComments(container, photoId) {
-                const existingComments = comments[photoId] || [];
-                const commentsList = document.createElement('div');
-                commentsList.className = 'comments-list';
-
-                existingComments.forEach(comment => {
+                const commentsSection = container.querySelector('.comments');
+                commentsSection.innerHTML = '';
+                
+                (comments[photoId] || []).forEach(comment => {
                     const commentElement = document.createElement('p');
+                    commentElement.className = 'comment';
                     commentElement.textContent = comment;
-                    commentsList.appendChild(commentElement);
+                    commentsSection.appendChild(commentElement);
                 });
-
-                container.querySelector('.comments-section').innerHTML = '';
-                container.querySelector('.comments-section').appendChild(commentsList);
             }
 
-            photoItem.appendChild(img);
-            commentsSection.appendChild(likeBtn);
-            commentsSection.appendChild(commentInput);
-            photoItem.appendChild(commentsSection);
-            galleryGrid.appendChild(photoItem);
+            const commentsSection = document.createElement('div');
+            commentsSection.className = 'comments';
+            renderComments(photoContainer, photo.id);
+
+            photoContainer.appendChild(img);
+            photoContainer.appendChild(likeBtn);
+            photoContainer.appendChild(commentInput);
+            photoContainer.appendChild(commentsSection);
+            galleryGrid.appendChild(photoContainer);
         });
     }
 
