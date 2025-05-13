@@ -99,7 +99,7 @@ if (document.getElementById('accessForm')) {
             // Создаем заголовок
             const greeting = document.createElement('h2');
             greeting.textContent = `Привет, ${student.name}!`;
-            greeting.className = 'greeting';
+            greeting.className = 'greeting-title'; // Добавляем класс для стилей
 
             // Создаем элемент видео
             const video = document.createElement('video');
