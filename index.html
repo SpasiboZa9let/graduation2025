@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Выпускной 2025</title>
     <!-- Шрифты -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script :wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins :wght@400;600&display=swap" rel="stylesheet">
     <!-- Стили -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,9 +14,6 @@
     <audio id="backgroundMusic" loop>
         <source src="audio/background-music.mp3" type="audio/mpeg">
     </audio>
-
-    <!-- Кнопка управления звуком -->
-    <button id="muteButton" class="control-btn">🔇</button>
 
     <!-- Логотип -->
     <div class="logo">
@@ -28,24 +25,14 @@
         <h2 class="subtitle">До встречи на главном празднике года!</h2>
         <div class="bell-animation">🔔</div>
         <div class="countdown-container">
-            <div class="countdown-item">
-                <span id="days">00</span>
-                <span class="countdown-label">Дней</span>
-            </div>
-            <div class="countdown-item">
-                <span id="hours">00</span>
-                <span class="countdown-label">Часов</span>
-            </div>
-            <div class="countdown-item">
-                <span id="minutes">00</span>
-                <span class="countdown-label">Минут</span>
-            </div>
+            <div class="countdown-item"><span id="days">00</span> дней</div>
+            <div class="countdown-item"><span id="hours">00</span> часов</div>
+            <div class="countdown-item"><span id="minutes">00</span> минут</div>
         </div>
 
         <div class="buttons">
             <a href="form.html" class="btn primary-btn">Получи поздравление</a>
             <a href="gallery.html" class="btn secondary-btn">Архив фото</a>
-            <a href="about.html" class="btn secondary-btn">О нас</a>
         </div>
     </div>
 
