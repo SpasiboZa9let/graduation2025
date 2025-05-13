@@ -3,11 +3,9 @@ const students = {};
 let isMuted = false;
 
 // Элементы
-const form = document.getElementById('accessForm');
-const input = document.getElementById('surname');
-const videoContainer = document.getElementById('videoContainer');
 const backgroundMusic = document.getElementById('backgroundMusic');
 const muteButton = document.getElementById('muteButton');
+const bell = document.getElementById('bell');
 
 // Загрузка данных студентов
 fetch('students.json')
@@ -29,11 +27,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Колокольчик с аудио эффектом
+bell.addEventListener('click', () => {
+    const bellSound = new Audio('audio/bell-sound.mp3');
+    bellSound.play();
+});
+
 // Обработка формы
+const form = document.getElementById('accessForm');
 if (form) {
     form.addEventListener('submit', function(e) {
         e.preventDefault();
-        const surname = input.value.toLowerCase().trim();
+        const surname = document.getElementById('surname').value.toLowerCase().trim();
 
         if (students[surname]) {
             const video = document.createElement('video');
@@ -42,13 +47,35 @@ if (form) {
             video.style.width = '100%';
             video.style.borderRadius = '10px';
 
-            videoContainer.innerHTML = `
+            document.getElementById('videoContainer').innerHTML = `
                 <h2 class="greeting">Привет, ${students[surname].name}!</h2>
             `;
-            videoContainer.appendChild(video);
-            input.value = '';
+            document.getElementById('videoContainer').appendChild(video);
         } else {
             alert('Фамилия не найдена');
         }
     });
 }
+
+// Модальное окно для галереи
+const modal = document.getElementById('modal');
+const modalImage = document.getElementById('modalImage');
+const images = document.querySelectorAll('.gallery img');
+const closeBtn = document.querySelector('.close');
+
+images.forEach(img => {
+    img.addEventListener('click', () => {
+        modal.style.display = 'block';
+        modalImage.src = img.src;
+    });
+});
+
+closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+});
