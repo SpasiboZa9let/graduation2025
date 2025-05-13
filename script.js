@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Таймер обратного отсчета
 function updateCountdown() {
-    const eventDate = new Date('2025-05-25T18:00:00').getTime(); // Дата мероприятия
+    const eventDate = new Date('2025-05-25T18:00:00').getTime();
     const now = new Date().getTime();
     const distance = eventDate - now;
 
@@ -30,32 +30,25 @@ function updateCountdown() {
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
-        document.getElementById('days')?.innerText = String(days).padStart(2, '0');
-        document.getElementById('hours')?.innerText = String(hours).padStart(2, '0');
-        document.getElementById('minutes')?.innerText = String(minutes).padStart(2, '0');
+        document.getElementById('days').innerText = String(days).padStart(2, '0');
+        document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+        document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
     } else {
-        // Если время истекло
-        document.querySelector('.countdown-container')?.innerHTML = '<h2>Мероприятие началось!</h2>';
+        document.querySelector('.countdown-container').innerHTML = '<h2>Мероприятие началось!</h2>';
     }
 }
 
-// Запускаем таймер при загрузке страницы
-if (document.querySelector('.countdown-container')) {
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-}
+setInterval(updateCountdown, 1000);
+updateCountdown();
 
 // Логика формы поздравления
 if (document.getElementById('accessForm')) {
     let students = {};
 
-    // Загрузка данных студентов
     async function loadStudents() {
         try {
             const response = await fetch('students.json');
-            if (!response.ok) {
-                throw new Error('Ошибка загрузки данных');
-            }
+            if (!response.ok) throw new Error('Ошибка загрузки данных');
             students = await response.json();
         } catch (error) {
             console.error('Ошибка:', error.message);
@@ -72,7 +65,6 @@ if (document.getElementById('accessForm')) {
         const videoContainer = document.getElementById('videoContainer');
         const spinner = document.getElementById('spinner');
 
-        // Автокомплит
         surnameInput.addEventListener('input', () => {
             const inputValue = surnameInput.value.toLowerCase();
             const availableNames = Object.keys(students).filter(name => name.startsWith(inputValue));
@@ -86,7 +78,6 @@ if (document.getElementById('accessForm')) {
             }
         });
 
-        // Отправка формы
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
@@ -113,8 +104,8 @@ if (document.getElementById('accessForm')) {
                 });
 
                 video.addEventListener('error', () => {
-                    alert('Видео не удалось загрузить.');
                     spinner.style.display = 'none';
+                    alert('Видео не удалось загрузить.');
                 });
 
                 videoContainer.appendChild(greeting);
@@ -127,7 +118,6 @@ if (document.getElementById('accessForm')) {
         });
     });
 
-    // Конфетти
     function launchConfetti() {
         confetti({
             particleCount: 100,
@@ -147,7 +137,7 @@ if (document.querySelector('.gallery-grid')) {
 
     function initGallery() {
         const galleryGrid = document.querySelector('.gallery-grid');
-        galleryGrid.innerHTML = ''; // Очищаем контейнер
+        galleryGrid.innerHTML = '';
 
         galleryData.forEach(photo => {
             const img = document.createElement('img');
