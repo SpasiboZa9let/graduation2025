@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма поздравления</title>
+    <!-- Шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins :wght@400;600&display=swap" rel="stylesheet">
+    <!-- Стили -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Кнопка возврата -->
+    <a href="index.html" class="back-btn">← Назад</a>
+
+    <!-- Форма доступа -->
+    <div class="container" id="accessForm">
+        <h2>Введите свою фамилию:</h2>
+        <form>
+            <input type="text" id="surname" placeholder="Фамилия" autocomplete="off">
+            <button type="submit">Показать видео</button>
+        </form>
+        <div id="videoContainer"></div>
+    </div>
+
+    <!-- Скрипты -->
+    <script src="students.json"></script>
+    <script src="script.js"></script>
+</body>
+</html>
