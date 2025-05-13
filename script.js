@@ -30,11 +30,19 @@ function updateCountdown() {
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
-        document.getElementById('days').innerText = String(days).padStart(2, '0');
-        document.getElementById('hours').innerText = String(hours).padStart(2, '0');
-        document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+        // Проверяем, что элементы существуют
+        const daysElement = document.getElementById('days');
+        const hoursElement = document.getElementById('hours');
+        const minutesElement = document.getElementById('minutes');
+
+        if (daysElement) daysElement.innerText = String(days).padStart(2, '0');
+        if (hoursElement) hoursElement.innerText = String(hours).padStart(2, '0');
+        if (minutesElement) minutesElement.innerText = String(minutes).padStart(2, '0');
     } else {
-        document.querySelector('.countdown-container').innerHTML = '<h2>Мероприятие началось!</h2>';
+        const countdownContainer = document.querySelector('.countdown-container');
+        if (countdownContainer) {
+            countdownContainer.innerHTML = '<h2>Мероприятие началось!</h2>';
+        }
     }
 }
 
