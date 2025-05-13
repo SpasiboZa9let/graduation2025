@@ -129,6 +129,27 @@ video.error {
     transform: scale(1.1); /* Небольшое увеличение */
 }
 
+/* Кнопка галереи */
+.gallery-btn {
+    position: fixed;
+    top: 60px; /* Под кнопкой звука */
+    right: 20px;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.gallery-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
 /* Адаптивность */
 @media (max-width: 480px) {
     .container {
@@ -140,7 +161,7 @@ video.error {
         font-size: 14px;
     }
 
-    .mute-btn {
+    .mute-btn, .gallery-btn {
         width: 35px;
         height: 35px;
         font-size: 16px;
