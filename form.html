@@ -14,11 +14,20 @@
     <a href="index.html" class="back-btn">← Назад</a>
 
     <!-- Форма доступа -->
-    <div class="container" id="accessForm">
-        <h2>Введите свою фамилию:</h2>
-        <form>
-            <input type="text" id="surname" placeholder="Фамилия" autocomplete="off">
-            <button type="submit">Показать видео</button>
+    <div class="container form-container animate__animated animate__fadeIn">
+        <h2 class="form-title">Введите свою фамилию:</h2>
+        <form id="accessForm">
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    id="surname" 
+                    placeholder="Фамилия" 
+                    autocomplete="off"
+                    required
+                >
+                <span class="input-border"></span>
+            </div>
+            <button type="submit" class="submit-btn">Показать видео</button>
         </form>
         <div id="videoContainer"></div>
     </div>
