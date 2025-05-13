@@ -21,7 +21,7 @@
                 <input 
                     type="text" 
                     id="surname" 
-                    placeholder="Фамилия" 
+                    placeholder="Введите свою фамилию латиницей или кириллицей" 
                     autocomplete="off"
                     required
                 >
@@ -29,9 +29,13 @@
             </div>
             <button type="submit" class="submit-btn">Показать видео</button>
         </form>
-        <div id="videoContainer"></div>
+        <div id="suggestions" class="suggestions"></div> <!-- Подсказки -->
+        <div id="spinner" class="spinner"></div> <!-- Спиннер -->
+        <div id="videoContainer"></div> <!-- Контейнер для видео -->
     </div>
 
+    <!-- Библиотека для конфетти -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti @1.5.1/dist/confetti.browser.min.js"></script>
     <!-- Скрипты -->
     <script src="students.json"></script>
     <script src="script.js"></script>
