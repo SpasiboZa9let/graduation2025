@@ -40,13 +40,16 @@ setInterval(() => {
 // Форма поздравления
 if (document.getElementById('accessForm')) {
     let students = {};
+    let isDataLoaded = false;
 
     async function loadStudents() {
         try {
             const response = await fetch('students.json');
             students = await response.json();
+            isDataLoaded = true;
         } catch (error) {
-            alert('Ошибка загрузки данных!');
+            alert('Ошибка загрузки данных студентов');
+            console.error(error);
         }
     }
 
@@ -54,6 +57,12 @@ if (document.getElementById('accessForm')) {
 
     document.getElementById('accessForm').addEventListener('submit', async (e) => {
         e.preventDefault();
+
+        if (!isDataLoaded) {
+            alert('Данные еще загружаются...');
+            return;
+        }
+
         const surname = document.getElementById('surname').value.toLowerCase().trim();
         const spinner = document.getElementById('spinner');
         const videoContainer = document.getElementById('videoContainer');
@@ -64,17 +73,20 @@ if (document.getElementById('accessForm')) {
         try {
             if (students[surname]) {
                 const student = students[surname];
-                
+
+                // Создаем заголовок
                 const greeting = document.createElement('h2');
                 greeting.textContent = `🎉 Привет, ${student.name}! 🎉`;
-                greeting.className = 'greeting-title';
+                greeting.className = 'greeting';
 
+                // Создаем элемент видео
                 const video = document.createElement('video');
                 video.src = student.video;
                 video.controls = true;
                 video.style.width = '100%';
                 video.style.borderRadius = '10px';
 
+                // Показываем конфетти после загрузки видео
                 video.addEventListener('canplay', () => {
                     spinner.style.display = 'none';
                     confetti({
@@ -84,7 +96,11 @@ if (document.getElementById('accessForm')) {
                     });
                 });
 
-                videoContainer.append(greeting, video);
+                // Добавляем заголовок и видео в контейнер
+                videoContainer.appendChild(greeting);
+                videoContainer.appendChild(video);
+
+                // Очищаем поле ввода
                 document.getElementById('surname').value = '';
             } else {
                 throw new Error('Фамилия не найдена');
@@ -93,14 +109,6 @@ if (document.getElementById('accessForm')) {
             spinner.style.display = 'none';
             alert(error.message);
         }
-    });
-
-    document.getElementById('surname').addEventListener('input', () => {
-        const inputValue = document.getElementById('surname').value.toLowerCase();
-        const matches = Object.keys(students).filter(name => name.startsWith(inputValue));
-        document.getElementById('suggestions').textContent = matches.length > 0 
-            ? `Доступные фамилии: ${matches.join(', ')}` 
-            : '';
     });
 }
 
@@ -112,72 +120,21 @@ if (document.querySelector('.gallery-grid')) {
         { id: 3, src: 'images/photo3.jpg', alt: 'Фото 3' }
     ];
 
-    let likes = JSON.parse(localStorage.getItem('likes')) || {};
-    let comments = JSON.parse(localStorage.getItem('comments')) || {};
-
     function initGallery() {
         const galleryGrid = document.querySelector('.gallery-grid');
         galleryGrid.innerHTML = '';
 
         galleryData.forEach(photo => {
-            const photoContainer = document.createElement('div');
-            photoContainer.className = 'photo-item';
+            const photoItem = document.createElement('div');
+            photoItem.className = 'photo-item';
 
             const img = document.createElement('img');
             img.src = photo.src;
             img.alt = photo.alt;
-            img.style.width = '100%';
-            img.style.borderRadius = '10px';
+            img.loading = 'lazy';
 
-            const likeBtn = document.createElement('button');
-            likeBtn.className = 'like-btn';
-            likeBtn.textContent = `❤️ ${likes[photo.id] || 0}`;
-            
-            likeBtn.addEventListener('click', () => {
-                likes[photo.id] = (likes[photo.id] || 0) + 1;
-                localStorage.setItem('likes', JSON.stringify(likes));
-                likeBtn.textContent = `❤️ ${likes[photo.id]}`;
-            });
-
-            const commentInput = document.createElement('input');
-            commentInput.type = 'text';
-            commentInput.placeholder = 'Комментарий...';
-            commentInput.className = 'comment-input';
-
-            commentInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    const commentText = e.target.value.trim();
-                    if (commentText) {
-                        comments[photo.id] = comments[photo.id] || [];
-                        comments[photo.id].push(commentText);
-                        localStorage.setItem('comments', JSON.stringify(comments));
-                        commentInput.value = '';
-                        renderComments(photoContainer, photo.id);
-                    }
-                }
-            });
-
-            function renderComments(container, photoId) {
-                const commentsSection = container.querySelector('.comments');
-                commentsSection.innerHTML = '';
-                
-                (comments[photoId] || []).forEach(comment => {
-                    const commentElement = document.createElement('p');
-                    commentElement.className = 'comment';
-                    commentElement.textContent = comment;
-                    commentsSection.appendChild(commentElement);
-                });
-            }
-
-            const commentsSection = document.createElement('div');
-            commentsSection.className = 'comments';
-            renderComments(photoContainer, photo.id);
-
-            photoContainer.appendChild(img);
-            photoContainer.appendChild(likeBtn);
-            photoContainer.appendChild(commentInput);
-            photoContainer.appendChild(commentsSection);
-            galleryGrid.appendChild(photoContainer);
+            photoItem.appendChild(img);
+            galleryGrid.appendChild(photoItem);
         });
     }
 
