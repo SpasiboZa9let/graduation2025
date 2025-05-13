@@ -10,48 +10,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Фоновая музыка -->
     <audio id="backgroundMusic" loop>
         <source src="audio/background-music.mp3" type="audio/mpeg">
     </audio>
-
-    <!-- Кнопка управления звуком -->
+    
     <button id="muteButton" class="control-btn">🔇</button>
 
-    <!-- Логотип выпускного -->
     <div class="logo">
         <h1 class="logo-title">🎉 Выпускной 2025 🎉</h1>
     </div>
 
-    <!-- Главный экран -->
     <div class="hero">
-        <h2 class="subtitle"></h2>
+        <h2 class="subtitle">Наконец-то выпускной!</h2>
         <div class="bell-animation" id="bell">🔔</div>
-
-        <!-- Таймер обратного отсчета -->
-        <div class="countdown-container">
-            <div class="countdown-item">
-                <span id="days">00</span>
-                <span class="countdown-label">Дней</span>
-            </div>
-            <div class="countdown-item">
-                <span id="hours">00</span>
-                <span class="countdown-label">Часов</span>
-            </div>
-            <div class="countdown-item">
-                <span id="minutes">00</span>
-                <span class="countdown-label">Минут</span>
-            </div>
-        </div>
-
         <div class="buttons">
             <a href="form.html" class="btn primary-btn">Получи поздравление</a>
             <a href="gallery.html" class="btn secondary-btn">Архив фото</a>
-            <a href="about.html" class="btn secondary-btn">О нас</a>
         </div>
     </div>
 
-    <!-- Скрипты -->
     <script src="script.js"></script>
 </body>
 </html>
