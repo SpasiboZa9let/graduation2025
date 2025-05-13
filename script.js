@@ -45,10 +45,11 @@ if (document.getElementById('accessForm')) {
     async function loadStudents() {
         try {
             const response = await fetch('students.json');
+            if (!response.ok) throw new Error('Ошибка загрузки данных');
             students = await response.json();
             isDataLoaded = true;
         } catch (error) {
-            alert('Ошибка загрузки данных студентов');
+            alert('Не удалось загрузить данные студентов');
             console.error(error);
         }
     }
