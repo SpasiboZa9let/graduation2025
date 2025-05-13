@@ -1,19 +1,9 @@
 // Фоновая музыка
 const backgroundMusic = document.getElementById('backgroundMusic');
-const muteButton = document.getElementById('muteButton');
 
-if (muteButton) {
-    muteButton.addEventListener('click', () => {
-        backgroundMusic.muted = !backgroundMusic.muted;
-        muteButton.textContent = backgroundMusic.muted ? '🔇' : '🔊';
-    });
-
-    document.addEventListener('DOMContentLoaded', () => {
-        backgroundMusic.play().catch(() => {
-            muteButton.textContent = '🔇';
-        });
-    });
-}
+document.addEventListener('DOMContentLoaded', () => {
+    backgroundMusic.play().catch(() => {});
+});
 
 // Таймер
 const countdownDate = new Date("June 15, 2025 18:00:00").getTime();
@@ -45,11 +35,10 @@ if (document.getElementById('accessForm')) {
     async function loadStudents() {
         try {
             const response = await fetch('students.json');
-            if (!response.ok) throw new Error('Ошибка загрузки данных');
             students = await response.json();
             isDataLoaded = true;
         } catch (error) {
-            alert('Не удалось загрузить данные студентов');
+            alert('Ошибка загрузки данных студентов');
             console.error(error);
         }
     }
@@ -87,7 +76,14 @@ if (document.getElementById('accessForm')) {
                 video.style.width = '100%';
                 video.style.borderRadius = '10px';
 
-                // Показываем конфетти после загрузки видео
+                // Показываем ошибку, если видео не загружается
+                video.addEventListener('error', () => {
+                    console.error(`Ошибка загрузки видео: ${student.video}`);
+                    alert('Видео не удалось загрузить. Проверьте путь к файлу.');
+                    spinner.style.display = 'none';
+                });
+
+                // Запускаем конфетти после загрузки видео
                 video.addEventListener('canplay', () => {
                     spinner.style.display = 'none';
                     confetti({
