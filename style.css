@@ -20,6 +20,7 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
+    overflow: hidden; /* Убираем полосы прокрутки, если они появляются */
 }
 
 .container {
@@ -32,6 +33,8 @@ body {
     max-width: 500px;
     text-align: center;
     animation: fadeIn 1s ease-in-out;
+    position: relative; /* Для корректного позиционирования внутренних элементов */
+    z-index: 1; /* Чтобы контейнер был поверх других элементов */
 }
 
 /* Форма ввода */
@@ -101,6 +104,31 @@ video.error {
     border: 2px solid #ff4d3b;
 }
 
+/* Кнопка управления звуком */
+.mute-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px; /* Ширина кнопки */
+    height: 40px; /* Высота кнопки */
+    border-radius: 50%; /* Круглая форма */
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    z-index: 1000; /* Чтобы кнопка была поверх всех элементов */
+}
+
+.mute-btn:hover {
+    background: rgba(0, 0, 0, 0.8); /* Темнее при наведении */
+    transform: scale(1.1); /* Небольшое увеличение */
+}
+
 /* Адаптивность */
 @media (max-width: 480px) {
     .container {
@@ -110,6 +138,12 @@ video.error {
     input, button {
         padding: 12px;
         font-size: 14px;
+    }
+
+    .mute-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
     }
 }
 
