@@ -10,7 +10,7 @@ body {
 }
 
 .container {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 40px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
@@ -22,7 +22,13 @@ body {
 }
 
 /* Форма ввода */
-.form input {
+#accessForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input {
     width: 100%;
     padding: 15px;
     border: 2px solid transparent;
@@ -31,34 +37,31 @@ body {
     color: white;
     font-size: 16px;
     transition: all 0.3s ease;
-    margin: 20px 0;
 }
 
-.form input:focus {
+input:focus {
     border-color: #ff6f61;
     background: rgba(255, 255, 255, 0.2);
     outline: none;
 }
 
-.form button {
+button {
     background: #ff6f61;
     border: none;
-    padding: 15px 30px;
+    padding: 15px;
     border-radius: 10px;
     color: white;
     font-weight: 600;
     cursor: pointer;
     transition: transform 0.3s ease;
-    width: 100%;
-    margin-top: 10px;
 }
 
-.form button:hover {
+button:hover {
     transform: scale(1.05);
 }
 
-/* Приветствие и видео */
-.greeting {
+/* Видео и приветствие */
+#greeting {
     color: #ff6f61;
     font-size: 1.5em;
     margin: 20px 0;
@@ -72,51 +75,8 @@ video {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Анимация ошибок */
-.error {
-    border-color: #ff4444 !important;
-    animation: shake 0.5s ease;
-}
-
-/* Адаптивность */
-@media (max-width: 480px) {
-    .container {
-        padding: 20px;
-    }
-
-    input {
-        padding: 12px;
-        font-size: 14px;
-    }
-
-    .form button {
-        padding: 12px;
-        font-size: 14px;
-    }
-}
-
-/* Кастомные анимации */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes bounceIn {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-20px); }
-    60% { transform: translateY(-10px); }
-}
-
-@keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
-    100% { transform: translateX(0); }
-}
-
 /* Кнопка звука */
-.mute-button {
+.mute-btn {
     position: fixed;
     top: 20px;
     right: 20px;
@@ -130,6 +90,30 @@ video {
     z-index: 1000;
 }
 
-.mute-button:hover {
+.mute-btn:hover {
     background: #ff4d3b;
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+
+    input, button {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes bounceIn {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
 }
