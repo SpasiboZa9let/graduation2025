@@ -50,6 +50,7 @@ if (document.getElementById('accessForm')) {
             const response = await fetch('students.json');
             if (!response.ok) throw new Error('Ошибка загрузки данных');
             students = await response.json();
+            console.log('Данные студентов успешно загружены:', students);
         } catch (error) {
             console.error('Ошибка:', error.message);
             alert('Не удалось загрузить данные.');
@@ -105,7 +106,7 @@ if (document.getElementById('accessForm')) {
 
                 video.addEventListener('error', () => {
                     spinner.style.display = 'none';
-                    alert('Видео не удалось загрузить.');
+                    alert(`Видео для ${student.name} не найдено.`);
                 });
 
                 videoContainer.appendChild(greeting);
@@ -130,9 +131,9 @@ if (document.getElementById('accessForm')) {
 // Логика галереи фото
 if (document.querySelector('.gallery-grid')) {
     const galleryData = [
-        { id: 1, src: 'images/photo1.jpg', alt: 'Фото 1' },
-        { id: 2, src: 'images/photo2.jpg', alt: 'Фото 2' },
-        { id: 3, src: 'images/photo3.jpg', alt: 'Фото 3' }
+        { id: 1, src: 'images/student1.jpg', alt: 'Выпускник 1' },
+        { id: 2, src: 'images/student2.jpg', alt: 'Выпускник 2' },
+        { id: 3, src: 'images/student3.jpg', alt: 'Выпускник 3' }
     ];
 
     function initGallery() {
