@@ -68,14 +68,14 @@ body {
 
 .logo-title {
     font-family: 'Dancing Script', cursive;
-    font-size: 4.5em;
+    font-size: 5em;
     animation: float 3s ease-in-out infinite;
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Колокольчик */
 .bell-animation {
-    font-size: 6em;
+    font-size: 7em;
     color: #ff6f61;
     cursor: pointer;
     animation: ring 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
@@ -140,6 +140,33 @@ body {
     transform: scale(1.1);
 }
 
+/* Таймер */
+.countdown-container {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.countdown-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.countdown-item span {
+    font-size: 2em;
+    color: #ff6f61;
+}
+
+.countdown-label {
+    font-size: 1em;
+    color: white;
+    margin-top: 5px;
+}
+
 /* Форма поздравления */
 .form-container {
     background: rgba(255, 255, 255, 0.1);
@@ -180,11 +207,22 @@ input:focus {
     width: 100%;
 }
 
-.greeting-title {
+.greeting {
     font-family: 'Dancing Script', cursive;
     font-size: 2em;
     color: #ff6f61;
     margin: 20px 0;
+}
+
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #ff6f61;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+    display: none;
 }
 
 /* Галерея */
@@ -248,4 +286,9 @@ input:focus {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
