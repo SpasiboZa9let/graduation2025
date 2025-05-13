@@ -12,6 +12,7 @@ const input = document.getElementById('surname');
 const videoContainer = document.getElementById('videoContainer');
 const backgroundMusic = document.getElementById('backgroundMusic');
 const muteButton = document.getElementById('muteButton');
+const galleryButton = document.getElementById('galleryButton');
 
 // Состояние звука
 let isMuted = false;
@@ -114,9 +115,9 @@ muteButton.addEventListener('click', () => {
     muteButton.textContent = isMuted ? '🔇' : '🔊';
 });
 
-// Мобильные улучшения
-document.querySelectorAll('button').forEach(btn => {
-    btn.addEventListener('touchstart', () => {});
+// Кнопка "Архив фото"
+galleryButton.addEventListener('click', () => {
+    window.location.href = 'gallery.html'; // Перенаправление на страницу галереи
 });
 
 // Кнопка "Поделиться"
