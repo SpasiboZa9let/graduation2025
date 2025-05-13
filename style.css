@@ -234,6 +234,22 @@ input:focus + .input-border {
     display: block; /* Показываем, если есть активные подсказки */
 }
 
+/* Заголовок "Привет, Имя!" */
+.greeting-title {
+    font-size: 2em; /* Увеличиваем размер текста */
+    font-weight: 600; /* Жирный шрифт */
+    color: #ff6f61; /* Цвет текста (яркий оранжевый) */
+    text-align: center; /* Центрирование текста */
+    margin-top: 20px; /* Отступ сверху */
+    margin-bottom: 20px; /* Отступ снизу */
+    width: 100%; /* Ширина заголовка */
+    display: block; /* Блочный элемент */
+    background: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
+    padding: 10px; /* Внутренний отступ */
+    border-radius: 10px; /* Скругление углов */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень для выделения */
+}
+
 /* Галерея */
 .gallery {
     display: grid;
