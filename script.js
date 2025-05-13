@@ -43,8 +43,9 @@ updateCountdown();
 
 // Логика формы поздравления
 if (document.getElementById('accessForm')) {
-    let students = {};
+    let students = {}; // Объект для хранения данных студентов
 
+    // Загрузка данных студентов из JSON
     async function loadStudents() {
         try {
             const response = await fetch('students.json');
@@ -58,7 +59,7 @@ if (document.getElementById('accessForm')) {
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-        loadStudents();
+        loadStudents(); // Загружаем данные студентов при загрузке страницы
 
         const form = document.getElementById('accessForm');
         const surnameInput = document.getElementById('surname');
@@ -66,6 +67,7 @@ if (document.getElementById('accessForm')) {
         const videoContainer = document.getElementById('videoContainer');
         const spinner = document.getElementById('spinner');
 
+        // Автокомплит фамилий
         surnameInput.addEventListener('input', () => {
             const inputValue = surnameInput.value.toLowerCase();
             const availableNames = Object.keys(students).filter(name => name.startsWith(inputValue));
@@ -79,39 +81,45 @@ if (document.getElementById('accessForm')) {
             }
         });
 
+        // Обработка отправки формы
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
             const surname = surnameInput.value.toLowerCase().trim();
-            videoContainer.innerHTML = '';
-            spinner.style.display = 'block';
+            videoContainer.innerHTML = ''; // Очищаем контейнер для видео
+            spinner.style.display = 'block'; // Показываем спиннер
 
             if (students[surname]) {
                 const student = students[surname];
 
+                // Создаем заголовок с именем студента
                 const greeting = document.createElement('h2');
                 greeting.textContent = `Привет, ${student.name}!`;
                 greeting.className = 'greeting-title';
 
+                // Создаем элемент <video>
                 const video = document.createElement('video');
-                video.src = student.video;
-                video.controls = true;
+                video.src = student.video; // Указываем путь к видео из JSON
+                video.controls = true; // Добавляем кнопки управления
                 video.style.width = '100%';
                 video.style.borderRadius = '10px';
 
+                // Обработка события "canplay" (видео готово к воспроизведению)
                 video.addEventListener('canplay', () => {
-                    spinner.style.display = 'none';
-                    launchConfetti();
+                    spinner.style.display = 'none'; // Скрываем спиннер
+                    launchConfetti(); // Запускаем анимацию конфетти
                 });
 
+                // Обработка ошибок загрузки видео
                 video.addEventListener('error', () => {
                     spinner.style.display = 'none';
                     alert(`Видео для ${student.name} не найдено.`);
                 });
 
+                // Добавляем элементы в DOM
                 videoContainer.appendChild(greeting);
                 videoContainer.appendChild(video);
-                surnameInput.value = '';
+                surnameInput.value = ''; // Очищаем поле ввода
             } else {
                 spinner.style.display = 'none';
                 alert('Фамилия не найдена.');
@@ -119,6 +127,7 @@ if (document.getElementById('accessForm')) {
         });
     });
 
+    // Запуск анимации конфетти
     function launchConfetti() {
         confetti({
             particleCount: 100,
@@ -146,6 +155,7 @@ if (document.querySelector('.gallery-grid')) {
             img.alt = photo.alt;
             img.style.width = '100%';
             img.style.borderRadius = '10px';
+            img.classList.add('shadow'); // Добавляем тень
 
             galleryGrid.appendChild(img);
         });
