@@ -1,32 +1,32 @@
-// Список учеников и ссылок на их видео
+// Список учеников и путей к их видео
 const students = {
-    "бродецкая": "https://www.youtube.com/embed/VIDEO_ID_BRODETSKAYA ",
-    "букатина": "https://www.youtube.com/embed/VIDEO_ID_BUKATINA ",
-    "бутенко": "https://www.youtube.com/embed/VIDEO_ID_BUTENKO ",
-    "васильев": "https://www.youtube.com/embed/VIDEO_ID_VASILIEV ",
-    "дмитрачкова": "https://www.youtube.com/embed/VIDEO_ID_DMITRACHKOVA ",
-    "канева": "https://www.youtube.com/embed/VIDEO_ID_KANEVA ",
-    "карпушонок": "https://www.youtube.com/embed/VIDEO_ID_KARPUSHONOK ",
-    "клинецкая": "https://www.youtube.com/embed/VIDEO_ID_KLINETSKAYA ",
-    "кудинов": "https://www.youtube.com/embed/VIDEO_ID_KUDINOV ",
-    "курдюкова": "https://www.youtube.com/embed/VIDEO_ID_KURDYUKOVA ",
-    "леканова": "https://www.youtube.com/embed/VIDEO_ID_LEKANOVA ",
-    "малеваный": "https://www.youtube.com/embed/VIDEO_ID_MALEVANY ",
-    "мильков": "https://www.youtube.com/embed/VIDEO_ID_MILKOV ",
-    "муслимов": "https://www.youtube.com/embed/VIDEO_ID_MUSLIMOV ",
-    "павлинова": "https://www.youtube.com/embed/VIDEO_ID_PAVLINOVA ",
-    "павлов": "https://www.youtube.com/embed/VIDEO_ID_PAVLOV ",
-    "паршин": "https://www.youtube.com/embed/VIDEO_ID_PARSHIN ",
-    "подоксенова": "https://www.youtube.com/embed/VIDEO_ID_PODOKSENOVA ",
-    "пономарев": "https://www.youtube.com/embed/VIDEO_ID_PONOMAREV ",
-    "пономарева": "https://www.youtube.com/embed/VIDEO_ID_PONOMAREVA ",
-    "рагуев": "https://www.youtube.com/embed/VIDEO_ID_RAGUEV ",
-    "семкичева": "https://www.youtube.com/embed/VIDEO_ID_SEMKICHEVA ",
-    "сидоров": "https://www.youtube.com/embed/VIDEO_ID_SIDOROV ",
-    "смирнова": "https://www.youtube.com/embed/VIDEO_ID_SMIRNOVA ",
-    "сокальская": "https://www.youtube.com/embed/VIDEO_ID_SOKALSKAYA ",
-    "стром": "https://www.youtube.com/embed/VIDEO_ID_STROM ",
-    "чупрова": "https://www.youtube.com/embed/VIDEO_ID_CHUPROVA "
+    "бродецкая": "videos/brodetskaya.mp4",
+    "букатина": "videos/bukatina.mp4",
+    "бутенко": "videos/butenko.mp4",
+    "васильев": "videos/vasiliev.mp4",
+    "дмитрачкова": "videos/dmitrachkova.mp4",
+    "канева": "videos/kaneva.mp4",
+    "карпушонок": "videos/karpushonok.mp4",
+    "клинецкая": "videos/klinetskaya.mp4",
+    "кудинов": "videos/kudinov.mp4",
+    "курдюкова": "videos/kurdyukova.mp4",
+    "леканова": "videos/lekanova.mp4",
+    "малеваный": "videos/malevany.mp4",
+    "мильков": "videos/milkov.mp4",
+    "муслимов": "videos/muslimov.mp4",
+    "павлинова": "videos/pavlinova.mp4",
+    "павлов": "videos/pavlov.mp4",
+    "паршин": "videos/parshin.mp4",
+    "подоксенова": "videos/podoksenova.mp4",
+    "пономарев": "videos/ponomarev.mp4",
+    "пономарева": "videos/ponomareva.mp4",
+    "рагуев": "videos/raguev.mp4",
+    "семкичева": "videos/semkicheva.mp4",
+    "сидоров": "videos/sidorov.mp4",
+    "смирнова": "videos/smirnova.mp4",
+    "сокальская": "videos/sokalskaya.mp4",
+    "стром": "videos/strom.mp4",
+    "чупрова": "videos/chuprova.mp4"
 };
 
 document.getElementById('accessForm').addEventListener('submit', function(event) {
@@ -42,7 +42,10 @@ document.getElementById('accessForm').addEventListener('submit', function(event)
     if (students[surname]) {
         // Если фамилия найдена, показываем видео с анимацией
         videoContainer.innerHTML = `
-            <iframe class="animate__animated animate__zoomIn" width="100%" height="315" src="${students[surname]}" frameborder="0" allowfullscreen></iframe>
+            <video class="animate__animated animate__zoomIn" width="100%" controls>
+                <source src="${students[surname]}" type="video/mp4">
+                Ваш браузер не поддерживает воспроизведение видео.
+            </video>
         `;
 
         // Добавляем персонализированное приветствие
