@@ -76,6 +76,15 @@ h1 {
     animation: fadeIn 1s ease-in-out; /* Анимация появления */
 }
 
+/* Стиль для видео */
+video {
+    width: 100%; /* Полная ширина внутри контейнера */
+    max-width: 600px; /* Максимальная ширина */
+    margin-top: 15px;
+    border-radius: 10px; /* Скругленные углы */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень */
+}
+
 /* Анимация ошибки */
 input.error {
     border-color: red !important; /* Красная рамка */
