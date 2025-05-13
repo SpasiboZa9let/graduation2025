@@ -147,7 +147,7 @@ if (document.querySelector('.gallery-grid')) {
 
     function initGallery() {
         const galleryGrid = document.querySelector('.gallery-grid');
-        galleryGrid.innerHTML = '';
+        galleryGrid.innerHTML = ''; // Очищаем контейнер
 
         galleryData.forEach(photo => {
             const img = document.createElement('img');
