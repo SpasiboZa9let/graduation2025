@@ -67,12 +67,12 @@ h1 {
     transform: scale(1.05); /* Небольшое увеличение */
 }
 
-/* Стиль для персонализированного приветствия */
+/* Приветствие */
 .greeting {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
     color: #ff6f61; /* Цвет текста */
-    text-transform: capitalize; /* Первая буква заглавная */
+    text-transform: none; /* Имя пишется как есть */
     animation: fadeIn 1s ease-in-out; /* Анимация появления */
 }
 
@@ -83,12 +83,6 @@ video {
     margin-top: 15px;
     border-radius: 10px; /* Скругленные углы */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень */
-}
-
-/* Анимация ошибки */
-input.error {
-    border-color: red !important; /* Красная рамка */
-    animation: shake 0.5s ease-in-out; /* Дрожание при ошибке */
 }
 
 /* Кнопка управления звуком */
