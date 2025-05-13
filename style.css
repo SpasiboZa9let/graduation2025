@@ -16,102 +16,6 @@ body {
     overflow: hidden;
 }
 
-/* Логотип выпускного */
-.logo {
-    position: absolute;
-    top: 20px;
-    text-align: center;
-    width: 100%;
-}
-
-.logo-title {
-    font-size: 1.5em;
-    font-weight: 600;
-    letter-spacing: 2px;
-    animation: float 3s ease-in-out infinite;
-}
-
-/* Главная страница */
-.hero {
-    text-align: center;
-    position: relative;
-    z-index: 1;
-}
-
-.subtitle {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-.bell-animation {
-    font-size: 3em;
-    cursor: pointer;
-    animation: ring 1s ease-in-out infinite;
-    margin-bottom: 30px;
-}
-
-.buttons {
-    display: flex;
-    gap: 20px;
-}
-
-.btn {
-    padding: 15px 30px;
-    border-radius: 30px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.3s ease, background 0.3s ease;
-    text-decoration: none;
-    color: white;
-    border: none;
-}
-
-.primary-btn {
-    background: #ff6f61;
-}
-
-.secondary-btn {
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid white;
-}
-
-.btn:hover {
-    transform: scale(1.1);
-}
-
-.primary-btn:hover {
-    background: #e55c51;
-}
-
-.secondary-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-/* Кнопка управления звуком */
-.control-btn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    color: white;
-    transition: all 0.3s ease;
-    z-index: 1000;
-}
-
-.control-btn:hover {
-    background: rgba(0, 0, 0, 0.8);
-    transform: scale(1.1);
-}
-
 /* Кнопка возврата */
 .back-btn {
     position: fixed;
@@ -133,155 +37,71 @@ body {
     background: rgba(0, 0, 0, 0.8);
 }
 
-/* Форма */
-.form-container {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    width: 100%;
-    max-width: 500px;
-    text-align: center;
-}
-
-.form-title {
-    font-size: 1.8em;
-    margin-bottom: 30px;
-}
-
-.input-group {
-    position: relative;
-    margin-bottom: 20px;
-}
-
-input {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-    background: transparent;
-    color: white;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
-}
-
-input:focus {
-    outline: none;
-    border-color: #ff6f61;
-}
-
-.input-border {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: #ff6f61;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-}
-
-input:focus + .input-border {
-    transform: scaleX(1);
-}
-
-.submit-btn {
-    background: #ff6f61;
-    border: none;
-    padding: 15px;
-    border-radius: 10px;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    width: 100%;
-    transition: transform 0.3s ease;
-}
-
-.submit-btn:hover {
-    transform: scale(1.05);
-}
-
-/* Спиннер */
-.spinner {
-    border: 4px solid rgba(255, 255, 255, 0.3); /* Светлая граница */
-    border-top: 4px solid #ff6f61; /* Цвет анимации */
-    border-radius: 50%; /* Круглый вид */
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite; /* Анимация вращения */
-    margin: 20px auto; /* Центрирование */
-    display: none; /* По умолчанию скрыт */
-}
-
-/* Анимация спиннера */
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Подсказки */
-.suggestions {
-    margin-top: 10px;
-    font-size: 0.9em;
-    color: #ff6f61;
-    text-align: center;
-    display: none; /* По умолчанию скрыты */
-}
-
-.suggestions.active {
-    display: block; /* Показываем, если есть активные подсказки */
-}
-
-/* Заголовок "Привет, Имя!" */
-.greeting-title {
-    font-size: 2em; /* Увеличиваем размер текста */
-    font-weight: 600; /* Жирный шрифт */
-    color: #ff6f61; /* Цвет текста (яркий оранжевый) */
-    text-align: center; /* Центрирование текста */
-    margin-top: 20px; /* Отступ сверху */
-    margin-bottom: 20px; /* Отступ снизу */
-    width: 100%; /* Ширина заголовка */
-    display: block; /* Блочный элемент */
-    background: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
-    padding: 10px; /* Внутренний отступ */
-    border-radius: 10px; /* Скругление углов */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень для выделения */
-}
-
 /* Галерея */
-.gallery {
+.gallery-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.gallery-title {
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #ff6f61;
+}
+
+.gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
-    padding: 20px;
-    width: 90%;
-    max-width: 1200px;
 }
 
-.gallery img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+.photo-item {
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
+    padding: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.like-btn {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    color: #ff6f61;
+    cursor: pointer;
+    margin-top: 10px;
     transition: transform 0.3s ease;
 }
 
-.gallery img:hover {
-    transform: scale(1.05);
-    filter: brightness(0.8);
+.like-btn:hover {
+    transform: scale(1.1);
 }
 
-/* Анимации */
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+.comment-section {
+    margin-top: 10px;
 }
 
-@keyframes ring {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(-15deg); }
-    75% { transform: rotate(15deg); }
+.comment {
+    font-size: 0.9em;
+    color: white;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1em;
+    outline: none;
+}
+
+input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.5);
 }
