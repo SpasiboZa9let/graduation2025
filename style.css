@@ -221,6 +221,19 @@ input:focus + .input-border {
     100% { transform: rotate(360deg); }
 }
 
+/* Подсказки */
+.suggestions {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #ff6f61;
+    text-align: center;
+    display: none; /* По умолчанию скрыты */
+}
+
+.suggestions.active {
+    display: block; /* Показываем, если есть активные подсказки */
+}
+
 /* Галерея */
 .gallery {
     display: grid;
