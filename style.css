@@ -16,39 +16,25 @@ body {
     overflow: hidden;
 }
 
-/* Кнопки управления */
-.back-btn,
-.control-btn {
+/* Кнопка возврата */
+.back-btn {
     position: fixed;
     top: 20px;
+    left: 20px;
     padding: 10px 20px;
     background: rgba(0, 0, 0, 0.5);
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
     font-size: 16px;
-    color: white;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease;
     z-index: 1000;
 }
 
-.back-btn {
-    left: 20px;
-}
-
-.control-btn {
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.control-btn:hover {
+.back-btn:hover {
     background: rgba(0, 0, 0, 0.8);
-    transform: scale(1.1);
 }
 
 /* Логотип выпускного */
@@ -252,19 +238,6 @@ input:focus + .input-border {
 }
 
 /* Галерея фото */
-.gallery-title-container {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.gallery-title {
-    font-family: 'Dancing Script', cursive;
-    font-size: 4em;
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -284,6 +257,35 @@ input:focus + .input-border {
 
 .gallery-grid img:hover {
     transform: scale(1.05);
+}
+
+/* Модальное окно */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
 }
 
 /* Анимации */
