@@ -1,164 +1,135 @@
-/* Общие стили */
+/* Основные стили */
 body {
-    font-family: 'Poppins', sans-serif;
     margin: 0;
-    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    font-family: 'Poppins', sans-serif;
     display: flex;
-    justify-content: center; /* Центрирование по горизонтали */
-    align-items: center; /* Центрирование по вертикали */
-    height: 100vh; /* Высота окна браузера */
-    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Градиентный фон */
-    color: white;
-    overflow: hidden; /* Убираем полосы прокрутки */
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 500px;
     text-align: center;
-    max-width: 400px; /* Максимальная ширина контейнера */
-    width: 90%; /* Ширина контейнера относительно экрана */
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
-    border-radius: 10px; /* Скругленные углы */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень */
-    backdrop-filter: blur(10px); /* Размытие фона */
+    animation: fadeIn 1s ease-in-out;
 }
 
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.description {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
+/* Форма ввода */
 .form input {
-    width: 100%; /* Полная ширина внутри контейнера */
-    padding: 10px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    background: rgba(255, 255, 255, 0.2); /* Полупрозрачный фон */
+    width: 100%;
+    padding: 15px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
     color: white;
-    transition: border-color 0.3s ease; /* Плавное изменение цвета рамки */
+    font-size: 16px;
+    transition: all 0.3s ease;
+    margin: 20px 0;
 }
 
 .form input:focus {
-    outline: none; /* Убираем стандартное выделение */
-    border-color: #ff6f61; /* Подсветка при фокусе */
+    border-color: #ff6f61;
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
 }
 
 .form button {
-    padding: 10px 20px;
-    background: #ff6f61; /* Цвет кнопки */
-    color: white;
+    background: #ff6f61;
     border: none;
-    border-radius: 5px;
-    font-size: 1rem;
+    padding: 15px 30px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease; /* Плавное изменение цвета и масштаба */
-    width: 100%; /* Кнопка занимает всю ширину контейнера */
+    transition: transform 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
 }
 
 .form button:hover {
-    background: #ff4d3b; /* Темнее при наведении */
-    transform: scale(1.05); /* Небольшое увеличение */
+    transform: scale(1.05);
 }
 
-/* Приветствие */
+/* Приветствие и видео */
 .greeting {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #ff6f61; /* Цвет текста */
-    text-transform: none; /* Имя пишется как есть */
-    animation: fadeIn 1s ease-in-out; /* Анимация появления */
+    color: #ff6f61;
+    font-size: 1.5em;
+    margin: 20px 0;
+    animation: bounceIn 1s ease-in-out;
 }
 
-/* Стиль для видео */
 video {
-    width: 100%; /* Полная ширина внутри контейнера */
-    max-width: 600px; /* Максимальная ширина */
-    margin-top: 15px;
-    border-radius: 10px; /* Скругленные углы */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень */
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Кнопка управления звуком */
+/* Анимация ошибок */
+.error {
+    border-color: #ff4444 !important;
+    animation: shake 0.5s ease;
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+
+    input {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .form button {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
+/* Кастомные анимации */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes bounceIn {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+/* Кнопка звука */
 .mute-button {
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
     padding: 10px 20px;
     background: #ff6f61;
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 1rem;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
+    z-index: 1000;
 }
 
 .mute-button:hover {
     background: #ff4d3b;
-    transform: scale(1.05);
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2rem; /* Уменьшаем заголовок */
-    }
-    .description {
-        font-size: 1rem; /* Уменьшаем описание */
-    }
-    .container {
-        padding: 15px; /* Уменьшаем отступы */
-    }
-    .form input, .form button {
-        font-size: 0.9rem; /* Уменьшаем текст в инпутах и кнопках */
-        padding: 8px; /* Уменьшаем внутренние отступы */
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 1.8rem; /* Ещё меньше заголовок */
-    }
-    .description {
-        font-size: 0.9rem; /* Уменьшаем описание */
-    }
-    .container {
-        padding: 10px; /* Минимальные отступы */
-    }
-    .form input, .form button {
-        font-size: 0.8rem; /* Ещё меньше текст */
-        padding: 6px; /* Минимальные внутренние отступы */
-    }
-}
-
-/* Дополнительные анимации */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes shake {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    25% {
-        transform: translateX(-5px);
-    }
-    50% {
-        transform: translateX(5px);
-    }
-    75% {
-        transform: translateX(-5px);
-    }
 }
