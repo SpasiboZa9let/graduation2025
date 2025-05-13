@@ -4,28 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Выпускной 2025</title>
-    <!-- Шрифты -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins :wght@400;600&display=swap" rel="stylesheet">
-    <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css ">
-    <!-- Стили -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Фоновая музыка -->
     <audio id="backgroundMusic" loop>
         <source src="audio/background-music.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Кнопка управления звуком -->
-    <button id="muteButton" class="mute-btn" aria-label="Выключить звук">🔇</button>
-
-    <!-- Кнопка галереи -->
-    <button id="galleryButton" class="gallery-btn" aria-label="Перейти в архив фото">Архив фото</button>
+    <!-- Кнопки управления -->
+    <button id="galleryButton" class="gallery-btn" aria-label="Архив фото"></button>
+    <button id="muteButton" class="mute-btn" aria-label="Звук">🔇</button>
 
     <!-- Основной контент -->
     <div class="container animate__animated animate__fadeIn">
-        <h1>Добро пожаловать на выпускной 2025!</h1>
+        <h1>Добро пожаловать!</h1>
         <form id="accessForm">
             <div class="input-group">
                 <input 
@@ -33,22 +27,15 @@
                     id="surname" 
                     placeholder="Фамилия" 
                     autocomplete="off"
-                    aria-label="Введите вашу фамилию"
-                    aria-describedby="helpText"
+                    aria-label="Введите фамилию"
                     required
                 >
-                <div id="helpText" class="sr-only">
-                    Введите фамилию кириллицей без пробелов
-                </div>
             </div>
             <button type="submit">Получить поздравление</button>
         </form>
-
-        <!-- Контейнер для видео -->
-        <div id="videoContainer" class="video-container"></div>
+        <div id="videoContainer"></div>
     </div>
 
-    <!-- Скрипты -->
     <script src="students.json"></script>
     <script src="script.js"></script>
 </body>
