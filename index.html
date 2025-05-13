@@ -18,23 +18,35 @@
     </audio>
 
     <!-- Кнопка управления звуком -->
-    <button id="muteButton" class="mute-btn">Выключить звук</button>
+    <button id="muteButton" class="mute-btn" aria-label="Выключить звук">🔇</button>
 
     <!-- Основной контент -->
     <div class="container animate__animated animate__fadeIn">
-        <h1>Добро пожаловать!</h1>
-        <p>Введите свою фамилию:</p>
-        
+        <h1>Добро пожаловать на выпускной 2025!</h1>
         <form id="accessForm">
-            <input type="text" id="surname" placeholder="Фамилия" autocomplete="off">
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    id="surname" 
+                    placeholder="Фамилия" 
+                    autocomplete="off"
+                    aria-label="Введите вашу фамилию"
+                    aria-describedby="helpText"
+                    required
+                >
+                <div id="helpText" class="sr-only">
+                    Введите фамилию кириллицей без пробелов
+                </div>
+            </div>
             <button type="submit">Получить поздравление</button>
         </form>
 
         <!-- Контейнер для видео -->
-        <div id="videoContainer"></div>
+        <div id="videoContainer" class="video-container"></div>
     </div>
 
     <!-- Скрипты -->
+    <script src="students.json"></script>
     <script src="script.js"></script>
 </body>
 </html>
