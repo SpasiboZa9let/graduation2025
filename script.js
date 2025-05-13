@@ -1,39 +1,32 @@
-// Инициализация
+// Инициализация данных
 const students = {};
 let isMuted = false;
 
 // Элементы
-const form = document.getElementById('accessForm');
+const form = document.querySelector('#accessForm form');
 const input = document.getElementById('surname');
 const videoContainer = document.getElementById('videoContainer');
 const backgroundMusic = document.getElementById('backgroundMusic');
 const muteButton = document.getElementById('muteButton');
-const galleryButton = document.getElementById('galleryButton');
 
-// Загрузка данных
-input.addEventListener('focus', async () => {
-    if (Object.keys(students).length === 0) {
-        try {
-            const response = await fetch('students.json');
-            Object.assign(students, await response.json());
-        } catch (error) {
-            alert('Ошибка загрузки данных');
-        }
-    }
-});
+// Загрузка данных студентов
+fetch('students.json')
+    .then(response => response.json())
+    .then(data => Object.assign(students, data))
+    .catch(error => console.error('Ошибка загрузки данных:', error));
 
 // Обработка формы
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', function(e) {
     e.preventDefault();
-    const surname = input.value.trim().toLowerCase();
-    
+    const surname = input.value.toLowerCase().trim();
+
     if (students[surname]) {
         const video = document.createElement('video');
         video.src = students[surname].video;
         video.controls = true;
-        video.onplay = () => backgroundMusic.pause();
-        video.onpause = () => !isMuted && backgroundMusic.play();
-        
+        video.style.width = '100%';
+        video.style.borderRadius = '10px';
+
         videoContainer.innerHTML = `
             <h2>Привет, ${students[surname].name}!</h2>
         `;
@@ -41,7 +34,6 @@ form.addEventListener('submit', (e) => {
         input.value = '';
     } else {
         alert('Фамилия не найдена');
-        input.value = '';
     }
 });
 
@@ -49,10 +41,5 @@ form.addEventListener('submit', (e) => {
 muteButton.addEventListener('click', () => {
     isMuted = !isMuted;
     backgroundMusic.muted = isMuted;
-    muteButton.textContent = isMuted ? '🔇' : '🔊';
-});
-
-// Переход в галерею
-galleryButton.addEventListener('click', () => {
-    window.location.href = 'gallery.html';
+    muteButton.textContent = isMuted ? '🔊' : '🔇';
 });
