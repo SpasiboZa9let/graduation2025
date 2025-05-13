@@ -3,22 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Выпускной 2024</title>
-    <!-- Подключение шрифтов -->
+    <title>Выпускной 2025</title>
+    <!-- Шрифты -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins :wght@400;600&display=swap" rel="stylesheet">
-    <!-- Animate.css для анимаций -->
+    <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css ">
-    <!-- Стили проекта -->
+    <!-- Стили -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Заголовок с анимацией -->
-        <h1 class="animate__animated animate__fadeInDown">Добро пожаловать!</h1>
-        <p class="description animate__animated animate__fadeIn">Введите свою фамилию:</p>
+    <!-- Фоновая музыка -->
+    <audio id="backgroundMusic" loop>
+        <source src="audio/background-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Кнопка управления звуком -->
+    <button id="muteButton" class="mute-btn">Выключить звук</button>
+
+    <!-- Основной контент -->
+    <div class="container animate__animated animate__fadeIn">
+        <h1>Добро пожаловать!</h1>
+        <p>Введите свою фамилию:</p>
         
-        <!-- Форма ввода -->
-        <form id="accessForm" class="form animate__animated animate__fadeInUp">
+        <form id="accessForm">
             <input type="text" id="surname" placeholder="Фамилия" autocomplete="off">
             <button type="submit">Получить поздравление</button>
         </form>
@@ -27,14 +34,7 @@
         <div id="videoContainer"></div>
     </div>
 
-    <!-- Фоновая музыка -->
-    <audio id="backgroundMusic" loop>
-        <source src="audio/music.mp3" type="audio/mpeg">
-    </audio>
-    <!-- Кнопка управления звуком -->
-    <button id="muteButton" class="mute-button">Выключить звук</button>
-
-    <!-- Скрипты проекта -->
+    <!-- Скрипты -->
     <script src="script.js"></script>
 </body>
 </html>
