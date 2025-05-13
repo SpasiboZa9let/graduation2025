@@ -1,32 +1,140 @@
-// Список учеников и путей к их видео
+// Список учеников и их данных
 const students = {
-    "бродецкая": "videos/brodetskaya.mp4",
-    "букатина": "videos/bukatina.mp4",
-    "бутенко": "videos/butenko.mp4",
-    "васильев": "videos/vasiliev.mp4",
-    "дмитрачкова": "videos/dmitrachkova.mp4",
-    "канева": "videos/kaneva.mp4",
-    "карпушонок": "videos/karpushonok.mp4",
-    "клинецкая": "videos/klinetskaya.mp4",
-    "кудинов": "videos/kudinov.mp4",
-    "курдюкова": "videos/kurdyukova.mp4",
-    "леканова": "videos/lekanova.mp4",
-    "малеваный": "videos/malevany.mp4",
-    "мильков": "videos/milkov.mp4",
-    "муслимов": "videos/muslimov.mp4",
-    "павлинова": "videos/pavlinova.mp4",
-    "павлов": "videos/pavlov.mp4",
-    "паршин": "videos/parshin.mp4",
-    "подоксенова": "videos/podoksenova.mp4",
-    "пономарев": "videos/ponomarev.mp4",
-    "пономарева": "videos/ponomareva.mp4",
-    "рагуев": "videos/raguev.mp4",
-    "семкичева": "videos/semkicheva.mp4",
-    "сидоров": "videos/sidorov.mp4",
-    "смирнова": "videos/smirnova.mp4",
-    "сокальская": "videos/sokalskaya.mp4",
-    "стром": "videos/strom.mp4",
-    "чупрова": "videos/chuprova.mp4"
+    "бродецкая": {
+        name: "Мария",
+        surname: "Бродецкая",
+        video: "videos/brodetskaya.mp4"
+    },
+    "букатина": {
+        name: "Дарья",
+        surname: "Букатина",
+        video: "videos/bukatina.mp4"
+    },
+    "бутенко": {
+        name: "Станислав",
+        surname: "Бутенко",
+        video: "videos/butenko.mp4"
+    },
+    "васильев": {
+        name: "Семен",
+        surname: "Васильев",
+        video: "videos/vasiliev.mp4"
+    },
+    "дмитрачкова": {
+        name: "Анастасия",
+        surname: "Дмитрачкова",
+        video: "videos/dmitrachkova.mp4"
+    },
+    "канева": {
+        name: "Виктория",
+        surname: "Канева",
+        video: "videos/kaneva.mp4"
+    },
+    "карпушонок": {
+        name: "Юлия",
+        surname: "Карпушонок",
+        video: "videos/karpushonok.mp4"
+    },
+    "клинецкая": {
+        name: "Милана",
+        surname: "Клинецкая",
+        video: "videos/klinetskaya.mp4"
+    },
+    "кудинов": {
+        name: "Евгений",
+        surname: "Кудинов",
+        video: "videos/kudinov.mp4"
+    },
+    "курдюкова": {
+        name: "Анна",
+        surname: "Курдюкова",
+        video: "videos/kurdyukova.mp4"
+    },
+    "леканова": {
+        name: "Виктория",
+        surname: "Леканова",
+        video: "videos/lekanova.mp4"
+    },
+    "малеваный": {
+        name: "Тимофей",
+        surname: "Малеваный",
+        video: "videos/malevany.mp4"
+    },
+    "мильков": {
+        name: "Роман",
+        surname: "Мильков",
+        video: "videos/milkov.mp4"
+    },
+    "муслимов": {
+        name: "Даниил",
+        surname: "Муслимов",
+        video: "videos/muslimov.mp4"
+    },
+    "павлинова": {
+        name: "Александра",
+        surname: "Павлинова",
+        video: "videos/pavlinova.mp4"
+    },
+    "павлов": {
+        name: "Иван",
+        surname: "Павлов",
+        video: "videos/pavlov.mp4"
+    },
+    "паршин": {
+        name: "Максим",
+        surname: "Паршин",
+        video: "videos/parshin.mp4"
+    },
+    "подоксенова": {
+        name: "Анастасия",
+        surname: "Подоксенова",
+        video: "videos/podoksenova.mp4"
+    },
+    "пономарев": {
+        name: "Никита",
+        surname: "Пономарев",
+        video: "videos/ponomarev.mp4"
+    },
+    "пономарева": {
+        name: "Алина",
+        surname: "Пономарева",
+        video: "videos/ponomareva.mp4"
+    },
+    "рагуев": {
+        name: "Артур",
+        surname: "Рагуев",
+        video: "videos/raguev.mp4"
+    },
+    "семкичева": {
+        name: "Елизавета",
+        surname: "Семкичева",
+        video: "videos/semkicheva.mp4"
+    },
+    "сидоров": {
+        name: "Лев",
+        surname: "Сидоров",
+        video: "videos/sidorov.mp4"
+    },
+    "смирнова": {
+        name: "Юлия",
+        surname: "Смирнова",
+        video: "videos/smirnova.mp4"
+    },
+    "сокальская": {
+        name: "Анастасия",
+        surname: "Сокальская",
+        video: "videos/sokalskaya.mp4"
+    },
+    "стром": {
+        name: "Ксения",
+        surname: "Стром",
+        video: "videos/strom.mp4"
+    },
+    "чупрова": {
+        name: "Ульяна",
+        surname: "Чупрова",
+        video: "videos/chuprova.mp4"
+    }
 };
 
 // Настройка фоновой музыки
@@ -64,19 +172,16 @@ document.getElementById('accessForm').addEventListener('submit', function(event)
     videoContainer.innerHTML = '';
 
     if (students[surname]) {
+        const student = students[surname];
+
         // Если фамилия найдена, показываем видео с анимацией
         videoContainer.innerHTML = `
+            <h2 class="greeting animate__animated animate__fadeIn">Привет, ${student.name}!</h2>
             <video class="animate__animated animate__zoomIn" width="100%" controls onplay="pauseBackgroundMusic()" onpause="resumeBackgroundMusic()">
-                <source src="${students[surname]}" type="video/mp4">
+                <source src="${student.video}" type="video/mp4">
                 Ваш браузер не поддерживает воспроизведение видео.
             </video>
         `;
-
-        // Добавляем персонализированное приветствие
-        const greeting = document.createElement('p');
-        greeting.textContent = `Привет, ${surname.charAt(0).toUpperCase() + surname.slice(1)}!`;
-        greeting.classList.add('greeting', 'animate__animated', 'animate__fadeIn');
-        videoContainer.prepend(greeting);
 
         // При начале воспроизведения видео останавливаем фоновую музыку
         const videoElement = videoContainer.querySelector('video');
@@ -98,6 +203,18 @@ document.getElementById('accessForm').addEventListener('submit', function(event)
         }, 2000);
 
         // Показываем сообщение об ошибке
-        alert('Код не найден. Попробуйте снова.');
+        alert('Фамилия не найдена. Попробуйте снова.');
     }
 });
+
+// Функция для паузы фоновой музыки
+function pauseBackgroundMusic() {
+    backgroundMusic.pause();
+}
+
+// Функция для возобновления фоновой музыки
+function resumeBackgroundMusic() {
+    if (!isMuted) {
+        backgroundMusic.play();
+    }
+}
