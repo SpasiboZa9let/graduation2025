@@ -1,41 +1,45 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Выпускной 2025</title>
-    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/timer.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Выпускной 2025 🎓</title>
+
+  <!-- Шрифты -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Sacramento&display=swap" rel="stylesheet">
+
+  <!-- Стили -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/timer.css">
+
 </head>
 <body>
-    <div class="container">
-        <div class="icon-container">
-            <span class="celebration-icon">🎉</span>
-        </div>
+  <main>
+    <!-- Заголовок -->
+    <h1 class="main-title">🎓 Выпускной 2025</h1>
 
-        <h1 class="main-title">Выпускной 2025</h1>
-
-        <div class="main-buttons">
-            <a href="gallery.html" class="main-btn" id="gallery">Фотоархив</a>
-            <a href="congrats.html" class="main-btn" id="video">Видеопоздравление</a>
-        </div>
-
-        <div class="countdown-container">
-            <h2>До события осталось:</h2>
-            <div id="countdown">
-                <span id="days">00</span> : 
-                <span id="hours">00</span> : 
-                <span id="minutes">00</span>
-            </div>
-        </div>
-
-        <!-- Опционально: скрытый аудиоплеер -->
-        <audio id="backgroundMusic" src="audio/music.mp3" preload="auto" loop></audio>
+    <!-- Кнопки -->
+    <div class="main-buttons">
+      <a href="congrats.html" class="main-btn">🎥 Видео</a>
+      <a href="gallery.html" class="main-btn">📸 Фотоархив</a>
     </div>
 
-    <!-- Скрипты -->
-    <script src="js/script.js"></script>
-    <script src="js/countdown.js"></script>
+    <!-- Таймер -->
+    <div class="countdown-container">
+      <h2>До начала выпускного осталось:</h2>
+      <div id="countdown">
+        <span id="days">00</span> :
+        <span id="hours">00</span> :
+        <span id="minutes">00</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- Аудио -->
+  <audio id="backgroundMusic" src="audio/music.mp3" loop></audio>
+
+  <!-- Скрипты -->
+  <script src="js/script.js"></script>
+  <script src="js/countdown.js"></script>
 </body>
 </html>
