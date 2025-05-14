@@ -10,86 +10,97 @@ body {
 
 h1, h2 {
     font-family: 'Sacramento', cursive;
-    color: #f05353;
+    color: #fff;
+    font-size: 3rem;
 }
 
-a.back-btn {
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Стили для кнопки возврата */
+.back-btn {
     position: absolute;
     top: 20px;
     left: 20px;
-    font-size: 18px;
+    font-size: 1.2rem;
+    color: #333;
     text-decoration: none;
-    color: #ff6f61;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
 }
 
-/* Форма */
+.back-btn:hover {
+    background-color: #ffb7b7;
+}
+
+/* Стили для формы */
 .form-container {
-    padding: 30px;
-    margin-top: 50px;
-    background-color: #ffffff;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    display: inline-block;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .form-title {
-    font-size: 30px;
-    margin-bottom: 20px;
-    color: #ff6f61;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 15px;
 }
 
-input[type="text"] {
-    padding: 10px;
-    font-size: 18px;
-    border: 2px solid #ff6f61;
+input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
     border-radius: 5px;
-    width: 80%;
-    margin-bottom: 20px;
+    border: 1px solid #ccc;
 }
 
-button.submit-btn {
+.submit-btn {
     padding: 10px 20px;
-    font-size: 18px;
+    font-size: 1.2rem;
     background-color: #ff6f61;
+    color: #fff;
     border: none;
-    color: white;
     border-radius: 5px;
     cursor: pointer;
-    width: 80%;
 }
 
-button.submit-btn:hover {
-    background-color: #f05353;
+.submit-btn:hover {
+    background-color: #ff3d2e;
+}
+
+/* Стиль для spinner */
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #ff6f61;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    margin: 20px auto;
+    display: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /* Таймер */
 .countdown-container {
-    font-size: 25px;
+    margin-top: 40px;
+    font-size: 2rem;
+    color: #333;
+}
+
+.countdown-container span {
+    font-size: 2.5rem;
+    font-weight: bold;
     color: #ff6f61;
-    margin-top: 20px;
-}
-
-/* Стиль для конфетти */
-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 100;
-}
-
-/* Анимации */
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-button.submit-btn {
-    animation: pulse 1.5s infinite;
 }
