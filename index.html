@@ -2,29 +2,29 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Выпускной 2025</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Главная страница</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <div class="main-container">
-    <h1>🎉 Выпускной 2025 🎉</h1>
-    <div class="button-group">
-      <a href="gallery.html" class="main-btn">📷 Фотоархив</a>
-      <a href="video.html" class="main-btn">🎬 Поздравление</a>
+  <div class="container">
+    <h1>Добро пожаловать на выпускной!</h1>
+    <div class="buttons">
+      <button id="photoArchiveBtn">Фотоархив</button>
+      <button id="greetingBtn">Поздравление</button>
     </div>
-    <div class="countdown-container">
-      <div><span id="days">00</span><small>дн</small></div>
-      <div><span id="hours">00</span><small>ч</small></div>
-      <div><span id="minutes">00</span><small>мин</small></div>
-    </div>
+
+    <!-- Конфетти при заходе на страницу -->
+    <script>
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+      });
+    </script>
   </div>
 
-  <audio id="backgroundMusic" autoplay loop>
-    <source src="audio/music.mp3" type="audio/mpeg" />
-  </audio>
-
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-  <script src="js/script.js"></script>
+  <!-- Подключаем основной JS -->
+  <script src="js/index.js"></script>
 </body>
 </html>
