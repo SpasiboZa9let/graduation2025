@@ -10,14 +10,19 @@
 <body>
     <a href="index.html" class="back-btn">← Назад</a>
 
-    <h1 class="gallery-title">Фотоархив</h1>
-
-    <div class="gallery-grid">
-        <img src="images/photo1.jpg" alt="Фото 1">
-        <img src="images/image.png" alt="Фото 2">
-        <img src="images/photo2.jpg" alt="Фото 3">
-        <img src="images/photo3.jpg" alt="Фото 4">
-        <!-- Добавь больше фото при необходимости -->
+    <div class="gallery-container">
+        <!-- Пример изображения, это будет динамически заполняться -->
+        <div class="gallery-item">
+            <img src="images/photo1.jpg" alt="Фото 1">
+            <div class="gallery-overlay">Фото 1</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images/photo2.jpg" alt="Фото 2">
+            <div class="gallery-overlay">Фото 2</div>
+        </div>
+        <!-- Дополнительные фотографии -->
     </div>
+
+    <script src="js/gallery.js"></script>
 </body>
 </html>
