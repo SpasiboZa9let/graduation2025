@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Выпускной 2025</title>
-    <!-- Шрифты -->
+    <!-- Подключаем шрифты -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
-
-    <!-- Стили -->
+    <!-- Подключаем стили -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,7 +20,7 @@
         Ваш браузер не поддерживает аудио.
     </audio>
 
-    <!-- Форма поздравления -->
+    <!-- Форма ввода фамилии -->
     <div class="form-container">
         <h2 class="form-title">Введите свою фамилию для поздравления!</h2>
         <form id="accessForm">
@@ -34,12 +33,11 @@
             >
             <button type="submit" class="submit-btn">Показать видео</button>
         </form>
-
         <div id="spinner" class="spinner" style="display: none;"></div>
         <div id="videoContainer"></div>
     </div>
 
-    <!-- Таймер -->
+    <!-- Таймер (для праздника) -->
     <div class="countdown-container">
         <span id="days">00</span> д. 
         <span id="hours">00</span> ч. 
@@ -48,8 +46,8 @@
 
     <!-- Скрипт конфетти -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-
-    <!-- Скрипт -->
+    
+    <!-- Подключаем основной скрипт -->
     <script src="script.js"></script>
 </body>
 </html>
