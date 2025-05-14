@@ -1,4 +1,4 @@
-/* Основные стили */
+/* style.css */
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #fffafc;
@@ -6,7 +6,7 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: start;
     min-height: 100vh;
 }
 
@@ -69,48 +69,4 @@ input#surname:focus {
     outline: none;
     display: block;
     margin: 0 auto;
-}
-
-/* Адаптивность для мобильных устройств */
-@media (max-width: 768px) {
-    .form-container {
-        padding: 20px;
-        margin-top: 30px;
-    }
-
-    .form-title {
-        font-size: 20px;
-    }
-
-    input#surname {
-        width: 100%;
-        font-size: 16px;
-        padding: 10px 14px;
-    }
-
-    .submit-btn {
-        font-size: 16px;
-        padding: 8px 16px;
-    }
-
-    #videoContainer video {
-        width: 100%;
-    }
-}
-
-/* Мобильные устройства очень маленького размера */
-@media (max-width: 480px) {
-    .form-title {
-        font-size: 18px;
-    }
-
-    input#surname {
-        font-size: 14px;
-        padding: 8px 12px;
-    }
-
-    .submit-btn {
-        font-size: 14px;
-        padding: 6px 12px;
-    }
 }
