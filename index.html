@@ -3,21 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная страница</title>
+    <title>Выпускной 2025</title>
     <!-- Шрифты -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+
     <!-- Стили -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Кнопка возврата -->
-    <a href="form.html" class="back-btn">← Запрос видео</a>
-
-    <!-- Заголовок -->
-    <h1>Добро пожаловать на сайт!</h1>
-
-    <!-- Кнопка перехода к фотоархиву -->
-    <a href="gallery.html" class="gallery-btn">Перейти в фотоархив</a>
+    <a href="index.html" class="back-btn">← Назад</a>
 
     <!-- Музыка -->
     <audio id="backgroundMusic" loop>
@@ -25,22 +21,35 @@
         Ваш браузер не поддерживает аудио.
     </audio>
 
-    <!-- Скрипт для конфетти -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-    <script>
-        // Функция для генерации конфетти
-        function generateConfetti() {
-            confetti({
-                particleCount: 100,
-                spread: 70,
-                origin: { x: 0.5, y: 0.5 }
-            });
-        }
-        // Запуск конфетти при загрузке страницы
-        window.onload = generateConfetti;
-    </script>
+    <!-- Форма поздравления -->
+    <div class="form-container">
+        <h2 class="form-title">Введите свою фамилию для поздравления!</h2>
+        <form id="accessForm">
+            <input 
+                type="text" 
+                id="surname" 
+                placeholder="Фамилия (например: Бродецкая)" 
+                autocomplete="off"
+                required
+            >
+            <button type="submit" class="submit-btn">Показать видео</button>
+        </form>
 
-    <!-- Скрипты -->
-    <script src="js/script.js"></script>
+        <div id="spinner" class="spinner" style="display: none;"></div>
+        <div id="videoContainer"></div>
+    </div>
+
+    <!-- Таймер -->
+    <div class="countdown-container">
+        <span id="days">00</span> д. 
+        <span id="hours">00</span> ч. 
+        <span id="minutes">00</span> мин.
+    </div>
+
+    <!-- Скрипт конфетти -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <!-- Скрипт -->
+    <script src="script.js"></script>
 </body>
 </html>
