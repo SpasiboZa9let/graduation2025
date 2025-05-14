@@ -1,78 +1,29 @@
-/* Основной стиль для таймера */
 .countdown-container {
-  font-family: 'Poppins', sans-serif;
-  font-size: 50px;
-  color: #fff;
-  text-align: center;
-  margin-top: 30px;
-  padding: 20px;
-  border-radius: 15px;
-  background: rgba(0, 0, 0, 0.5); /* полупрозрачный фон */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 40px;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Стили для отдельных блоков времени (дни, часы, минуты) */
-.countdown-time {
-  display: inline-block;
-  padding: 15px 30px;
-  margin: 10px;
-  font-size: 60px;
-  font-weight: 600;
-  background-color: #f39c12;
-  color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s ease;
+.countdown-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #34495e;
 }
 
-/* При наведении на блоки времени */
-.countdown-time:hover {
-  background-color: #e67e22;
+#countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: #e91e63;
 }
 
-/* Анимация для плавного изменения цифр */
-@keyframes fadeInOut {
-  0% { opacity: 0; transform: scale(0.8); }
-  50% { opacity: 1; transform: scale(1); }
-  100% { opacity: 0; transform: scale(0.8); }
-}
-
-.countdown-time span {
-  display: inline-block;
-  animation: fadeInOut 1s ease-in-out infinite;
-}
-
-/* Декорации вокруг таймера */
-.countdown-container::before,
-.countdown-container::after {
-  content: '🎉';
-  font-size: 40px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  animation: bounce 1s infinite alternate;
-}
-
-.countdown-container::before {
-  left: -50px;
-}
-
-.countdown-container::after {
-  right: -50px;
-}
-
-/* Анимация для подпрыгивания */
-@keyframes bounce {
-  0% { transform: translateY(-50%) scale(1); }
-  100% { transform: translateY(-60%) scale(1.2); }
-}
-
-/* Градиентный фон */
-body {
-  background: linear-gradient(135deg, #ff5f6d, #ffc371);
-  background-size: cover;
-  font-family: 'Poppins', sans-serif;
+#countdown span {
+    background: #fff0f5;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
 }
