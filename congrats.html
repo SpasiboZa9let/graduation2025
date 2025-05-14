@@ -6,12 +6,11 @@
     <title>Поздравление</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <!-- Кнопка назад -->
     <a href="index.html" class="back-btn">← Назад</a>
 
-    <!-- Форма для ввода фамилии -->
     <div class="form-container">
         <h2 class="form-title">Введите свою фамилию для поздравления!</h2>
         <form id="accessForm">
@@ -24,12 +23,11 @@
             >
             <button type="submit" class="submit-btn">Показать видео</button>
         </form>
-
-        <!-- Место для загрузки видео -->
         <div id="spinner" class="spinner" style="display: none;"></div>
         <div id="videoContainer"></div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="js/congrats.js"></script> <!-- Скрипт для формы -->
+    <script src="js/script.js"></script> <!-- Общий скрипт -->
 </body>
 </html>
