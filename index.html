@@ -2,19 +2,22 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Выпускной 2025</title>
+  
+  <!-- Шрифты -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Sacramento&display=swap" rel="stylesheet" />
+  
+  <!-- Стили -->
   <link rel="stylesheet" href="css/main.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <audio id="backgroundMusic" src="audio/music.mp3" loop></audio>
 
-  <!-- Анимированный колокольчик -->
-  <div class="bell-container">
-    <img src="images/image.png" alt="Колокольчик" class="bell" />
-  </div>
+  <!-- Праздничный смайлик -->
+  <div class="emoji-decoration">🎉</div>
 
-  <!-- Главный заголовок -->
+  <!-- Заголовок -->
   <h1 class="main-title">ВЫПУСКНОЙ 2025</h1>
 
   <!-- Кнопки -->
@@ -26,17 +29,13 @@
   <!-- Таймер -->
   <div class="countdown-container">
     До события: 
-    <span id="days">00</span> дней 
-    <span id="hours">00</span> часов 
-    <span id="minutes">00</span> минут
+    <span id="days">00</span> д. 
+    <span id="hours">00</span> ч. 
+    <span id="minutes">00</span> мин.
   </div>
 
-  <!-- Фоновая музыка -->
-  <audio id="backgroundMusic" src="audio/music.mp3" loop></audio>
-
   <!-- Скрипты -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <script src="js/countdown.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/countdown.js"></script>
 </body>
 </html>
