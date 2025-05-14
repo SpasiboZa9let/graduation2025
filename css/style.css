@@ -1,96 +1,95 @@
-/* Основные стили */
+/* Общие стили */
 body {
     font-family: 'Poppins', sans-serif;
-    text-align: center;
+    background: linear-gradient(45deg, #f0c8b1, #ffcdb2);
+    color: #333;
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
-a {
-    text-decoration: none;
-    color: #000;
-}
-
-/* Стиль для кнопки возврата */
-.back-btn {
-    display: inline-block;
-    margin-top: 20px;
-    font-size: 16px;
-    color: #4CAF50;
-}
-
-/* Заголовки */
 h1, h2 {
-    font-weight: 600;
+    font-family: 'Sacramento', cursive;
+    color: #f05353;
 }
 
-/* Формы */
+a.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 18px;
+    text-decoration: none;
+    color: #ff6f61;
+}
+
+/* Форма */
 .form-container {
+    padding: 30px;
     margin-top: 50px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: inline-block;
 }
 
 .form-title {
-    font-size: 24px;
+    font-size: 30px;
     margin-bottom: 20px;
+    color: #ff6f61;
 }
 
 input[type="text"] {
     padding: 10px;
     font-size: 18px;
+    border: 2px solid #ff6f61;
+    border-radius: 5px;
     width: 80%;
     margin-bottom: 20px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
 }
 
-.submit-btn {
-    padding: 12px 20px;
+button.submit-btn {
+    padding: 10px 20px;
     font-size: 18px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #ff6f61;
     border: none;
+    color: white;
     border-radius: 5px;
     cursor: pointer;
+    width: 80%;
 }
 
-/* Стиль для галереи */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 10px;
-    margin-top: 30px;
+button.submit-btn:hover {
+    background-color: #f05353;
 }
 
-.gallery-grid img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+/* Таймер */
+.countdown-container {
+    font-size: 25px;
+    color: #ff6f61;
+    margin-top: 20px;
 }
 
-/* Мобильная адаптация */
-@media (max-width: 768px) {
-    .form-container {
-        margin-top: 20px;
-        padding: 15px;
-    }
+/* Стиль для конфетти */
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
 
-    .submit-btn {
-        width: 100%;
-        font-size: 16px;
+/* Анимации */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
     }
-
-    .gallery-grid {
-        grid-template-columns: 1fr 1fr;
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
     }
 }
 
-@media (max-width: 480px) {
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
+button.submit-btn {
+    animation: pulse 1.5s infinite;
 }
