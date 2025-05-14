@@ -4,46 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Выпускной 2025</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="timer.css"> <!-- Подключаем CSS для таймера -->
+    <link rel="stylesheet" href="style.css">  <!-- Подключение стилей -->
+    <link rel="stylesheet" href="main.css">   <!-- Подключение других стилей -->
 </head>
 <body>
-    <!-- Основной блок с заголовком и кнопками -->
-    <div class="main-container">
+    <div class="container">
+        <!-- Колокольчик или смайлик -->
+        <div class="icon-container">
+            <span class="celebration-icon">🎉</span>
+        </div>
+
         <h1 class="main-title">Выпускной 2025</h1>
+
         <div class="main-buttons">
             <a href="gallery.html" class="main-btn">Фотоархив</a>
-            <a href="video.html" class="main-btn">Видео</a>
-            <a href="congrats.html" class="main-btn">Поздравление</a>
+            <a href="video.html" class="main-btn">Видеопоздравление</a>
         </div>
 
-        <!-- Таймер до мероприятия -->
         <div class="countdown-container">
-            <div id="days" class="countdown-time">
-                <span id="days-num"></span> дней
+            <h2>До события осталось:</h2>
+            <div id="countdown">
+                <span id="days"></span>:<span id="hours"></span>:<span id="minutes"></span>
             </div>
-            <div id="hours" class="countdown-time">
-                <span id="hours-num"></span> часов
-            </div>
-            <div id="minutes" class="countdown-time">
-                <span id="minutes-num"></span> минут
-            </div>
-        </div>
-
-        <div class="countdown-message">
-            <p>До мероприятия осталось:</p>
         </div>
     </div>
 
-    <div class="music-container">
-        <audio id="backgroundMusic" loop>
-            <source src="audio/music.mp3" type="audio/mp3">
-        </audio>
-    </div>
-
-    <script src="countdown.js"></script> <!-- Подключаем JS для таймера -->
-    <script src="script.js"></script> <!-- Подключаем основной скрипт -->
+    <script src="script.js"></script>   <!-- Основной скрипт -->
+    <script src="countdown.js"></script>  <!-- Скрипт для таймера -->
+    <script src="access.js"></script>  <!-- Скрипт для проверки даты -->
 </body>
 </html>
