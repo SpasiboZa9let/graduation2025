@@ -4,24 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Форма запроса видео</title>
-    
     <!-- Шрифты -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
     <!-- Стили -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Кнопка возврата -->
     <a href="index.html" class="back-btn">← Назад</a>
 
-    <!-- 🎵 Музыка -->
+    <!-- Музыка -->
     <audio id="backgroundMusic" loop>
-        <source src="music.mp3" type="audio/mpeg">
+        <source src="audio/music.mp3" type="audio/mpeg">
         Ваш браузер не поддерживает аудио.
     </audio>
 
-    <!-- 🎓 Форма поздравления -->
+    <!-- Форма запроса видео -->
     <div class="form-container">
         <h2 class="form-title">Введите свою фамилию:</h2>
         <form id="accessForm">
@@ -35,24 +33,11 @@
             <button type="submit" class="submit-btn">Показать видео</button>
         </form>
 
-        <!-- Индикатор загрузки -->
         <div id="spinner" class="spinner" style="display: none;"></div>
-
-        <!-- Контейнер для видео -->
         <div id="videoContainer"></div>
     </div>
 
-    <!-- ⏳ Таймер -->
-    <div class="countdown-container">
-        <span id="days">00</span> д. 
-        <span id="hours">00</span> ч. 
-        <span id="minutes">00</span> мин.
-    </div>
-
-    <!-- 🎉 Конфетти -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-
-    <!-- 📜 Скрипт -->
-    <script src="script.js"></script>
+    <!-- Скрипт -->
+    <script src="js/script.js"></script>
 </body>
 </html>
