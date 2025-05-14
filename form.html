@@ -1,43 +1,31 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Форма запроса видео</title>
-    <!-- Шрифты -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Стили -->
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Форма запроса видео</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <!-- Кнопка возврата -->
-    <a href="index.html" class="back-btn">← Назад</a>
+  <a href="index.html" class="back-btn">← Назад</a>
 
-    <!-- Музыка -->
-    <audio id="backgroundMusic" loop>
-        <source src="audio/music.mp3" type="audio/mpeg">
-        Ваш браузер не поддерживает аудио.
-    </audio>
+  <div class="form-container">
+    <h2>Введите свою фамилию:</h2>
+    <form id="accessForm">
+      <input 
+        type="text" 
+        id="surname" 
+        placeholder="Фамилия (например: Бродецкая)" 
+        autocomplete="off"
+        required
+      >
+      <button type="submit">Показать видео</button>
+    </form>
+    <div id="spinner" class="spinner" style="display: none;"></div>
+    <div id="videoContainer"></div>
+  </div>
 
-    <!-- Форма запроса видео -->
-    <div class="form-container">
-        <h2 class="form-title">Введите свою фамилию:</h2>
-        <form id="accessForm">
-            <input 
-                type="text" 
-                id="surname" 
-                placeholder="Фамилия (например: Бродецкая)" 
-                autocomplete="off"
-                required
-            >
-            <button type="submit" class="submit-btn">Показать видео</button>
-        </form>
-
-        <div id="spinner" class="spinner" style="display: none;"></div>
-        <div id="videoContainer"></div>
-    </div>
-
-    <!-- Скрипт -->
-    <script src="js/script.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/form.js"></script>
 </body>
 </html>
