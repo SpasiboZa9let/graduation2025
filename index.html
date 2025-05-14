@@ -1,24 +1,42 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Выпускной 2025</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Выпускной 2025</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1 class="main-title">ВЫПУСКНОЙ 2025</h1>
-    <div class="main-buttons">
-        <a href="congrats.html" class="main-btn">ПОЗДРАВЛЕНИЕ</a>
-        <a href="gallery.html" class="main-btn">ФОТОАРХИВ</a>
-    </div>
-    <div class="countdown-container">
-        <h2>До события:</h2>
-        <p>Дней: <span id="days">00</span>, Часов: <span id="hours">00</span>, Минут: <span id="minutes">00</span></p>
-    </div>
-    <audio id="backgroundMusic" src="audio/music.mp3" loop></audio>
 
-    <script src="js/script.js"></script>
+  <!-- Анимированный колокольчик -->
+  <div class="bell-container">
+    <img src="images/image.png" alt="Колокольчик" class="bell" />
+  </div>
+
+  <!-- Главный заголовок -->
+  <h1 class="main-title">ВЫПУСКНОЙ 2025</h1>
+
+  <!-- Кнопки -->
+  <div class="main-buttons">
+    <a href="congrats.html" class="main-btn">ПОЗДРАВЛЕНИЕ</a>
+    <a href="gallery.html" class="main-btn">ФОТОАРХИВ</a>
+  </div>
+
+  <!-- Таймер -->
+  <div class="countdown-container">
+    До события: 
+    <span id="days">00</span> дней 
+    <span id="hours">00</span> часов 
+    <span id="minutes">00</span> минут
+  </div>
+
+  <!-- Фоновая музыка -->
+  <audio id="backgroundMusic" src="audio/music.mp3" loop></audio>
+
+  <!-- Скрипты -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
