@@ -23,9 +23,10 @@ setInterval(() => {
         document.getElementById('hours')?.innerText = hours.toString().padStart(2, '0');
         document.getElementById('minutes')?.innerText = minutes.toString().padStart(2, '0');
     } else {
-        document.querySelector('.countdown-container')?.replaceChildren(
-            document.createElement('h2').textContent = 'Мероприятие началось!'
-        );
+        // Исправленный код для замены таймера сообщением
+        const message = document.createElement('h2');
+        message.textContent = 'Мероприятие началось!';
+        document.querySelector('.countdown-container')?.replaceChildren(message);
     }
 }, 1000);
 
