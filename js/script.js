@@ -1,7 +1,6 @@
-// Таймер обратного отсчета (например, до события)
-const countdownDate = new Date("May 25, 2025 00:00:00").getTime();
+// Таймер обратного отсчета
+const countdownDate = new Date().getTime() + 32 * 24 * 60 * 60 * 1000; // Таймер на 32 дня
 
-// Обновляем таймер каждую секунду
 const countdownInterval = setInterval(function() {
     const now = new Date().getTime();
     const distance = countdownDate - now;
@@ -39,10 +38,10 @@ const students = {
     }
 };
 
-// Обработчик формы
-document.getElementById("accessForm").addEventListener("submit", function(event) {
+// Обработчик формы поздравления
+document.getElementById("accessForm")?.addEventListener("submit", function(event) {
     event.preventDefault();
-    
+
     const surname = document.getElementById("surname").value.toLowerCase().trim();
     const student = students[surname];
 
@@ -60,33 +59,8 @@ document.getElementById("accessForm").addEventListener("submit", function(event)
             document.getElementById("spinner").style.display = "none";
             document.getElementById("videoContainer").innerHTML = "";
             document.getElementById("videoContainer").appendChild(video);
-            confetti();
         };
     } else {
         alert("Студент не найден. Попробуйте снова.");
     }
 });
-
-// Функция для конфетти
-function confetti() {
-    const duration = 5 * 1000; // 5 секунд
-    const end = Date.now() + duration;
-
-    (function frame() {
-        canvasConfetti({
-            particleCount: 5,
-            angle: 60,
-            spread: 55,
-            origin: { x: 0 }
-        });
-        canvasConfetti({
-            particleCount: 5,
-            angle: 120,
-            spread: 55,
-            origin: { x: 1 }
-        });
-        if (Date.now() < end) {
-            requestAnimationFrame(frame);
-        }
-    })();
-}
