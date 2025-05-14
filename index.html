@@ -3,56 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Форма запроса видео</title>
+    <title>Главная страница</title>
     <!-- Шрифты -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <!-- Стили -->
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Кнопка возврата -->
-    <a href="index.html" class="back-btn">← Назад</a>
+    <a href="form.html" class="back-btn">← Запрос видео</a>
+
+    <!-- Заголовок -->
+    <h1>Добро пожаловать на сайт!</h1>
+
+    <!-- Кнопка перехода к фотоархиву -->
+    <a href="gallery.html" class="gallery-btn">Перейти в фотоархив</a>
 
     <!-- Музыка -->
     <audio id="backgroundMusic" loop>
-        <source src="music.mp3" type="audio/mpeg">
+        <source src="audio/music.mp3" type="audio/mpeg">
         Ваш браузер не поддерживает аудио.
     </audio>
 
-    <!-- Главный экран -->
-    <div id="main-screen">
-        <h1>Добро пожаловать!</h1>
-        <p>Введите вашу фамилию ниже, чтобы увидеть поздравление.</p>
-    </div>
-
-    <!-- Форма -->
-    <div class="form-container">
-        <h2 class="form-title">Введите свою фамилию:</h2>
-        <form id="accessForm">
-            <input 
-                type="text" 
-                id="surname" 
-                placeholder="Фамилия (например: Бродецкая)" 
-                autocomplete="off"
-                required
-            >
-            <button type="submit" class="submit-btn">Показать видео</button>
-        </form>
-        <div id="spinner" class="spinner" style="display: none;"></div>
-        <div id="videoContainer"></div>
-    </div>
-
-    <!-- Таймер (если нужен визуально) -->
-    <div class="countdown-container">
-        <span id="days">00</span> д. 
-        <span id="hours">00</span> ч. 
-        <span id="minutes">00</span> мин.
-    </div>
-
-    <!-- Скрипт конфетти -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-
-    <!-- Скрипт -->
-    <script src="scripts/script.js"></script>
+    <!-- Скрипты -->
+    <script src="js/script.js"></script>
 </body>
 </html>
