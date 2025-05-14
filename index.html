@@ -5,27 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Выпускной 2025</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css"> <!-- Основной стиль -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Праздничный стиль -->
+    <link rel="stylesheet" href="css/gallery.css"> <!-- Для фотоархива -->
 </head>
 <body>
-    <!-- Колокольчик -->
-    <div class="bell">🔔</div>
-
-    <!-- Заголовок -->
     <h1 class="main-title">ВЫПУСКНОЙ 2025</h1>
-
-    <!-- Кнопки -->
+    
+    <!-- Кнопки перехода -->
     <div class="main-buttons">
-        <a href="congrats.html" class="main-btn">Поздравление</a>
-        <a href="gallery.html" class="main-btn">Фотоархив</a>
+        <a href="congrats.html" class="main-btn congrats-btn">ПОЗДРАВЛЕНИЕ</a>
+        <a href="photoArchive.html" class="main-btn photo-btn">ФОТОАРХИВ</a>
     </div>
 
     <!-- Таймер -->
-    <div class="countdown-container">
-        <p>До выпускного:</p>
-        <div id="countdown"></div>
+    <div id="countdown" class="countdown-container">
+        <p>До события осталось:</p>
+        <div id="timer">
+            <span id="days">00</span> дн.
+            <span id="hours">00</span> ч.
+            <span id="minutes">00</span> мин.
+        </div>
     </div>
 
-    <script src="js/countdown.js"></script>
+    <!-- Колокольчик -->
+    <div class="bell-icon">
+        <img src="images/bell.svg" alt="Колокольчик" />
+    </div>
+
+    <!-- Фоновая музыка -->
+    <audio id="backgroundMusic" loop>
+        <source src="audio/celebration.mp3" type="audio/mp3">
+        Ваш браузер не поддерживает аудио.
+    </audio>
+
+    <script src="js/index.js"></script> <!-- Главный скрипт -->
+    <script src="js/script.js"></script> <!-- Общий скрипт -->
 </body>
 </html>
