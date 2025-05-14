@@ -4,24 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Выпускной 2025</title>
-    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">  <!-- Подключение стилей -->
-    <link rel="stylesheet" href="main.css">   <!-- Подключение других стилей -->
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet"> <!-- Шрифт для праздника -->
+    <link rel="stylesheet" href="css/main.css">  <!-- Основные стили для дизайна -->
+    <link rel="stylesheet" href="css/timer.css"> <!-- Таймер стиль -->
 </head>
 <body>
     <div class="container">
-        <!-- Колокольчик или смайлик -->
+        <!-- Иконка праздника -->
         <div class="icon-container">
-            <span class="celebration-icon">🎉</span>
+            <span class="celebration-icon">🎉</span> <!-- Смайлик -->
         </div>
 
-        <h1 class="main-title">Выпускной 2025</h1>
+        <h1 class="main-title">Выпускной 2025</h1> <!-- Главный заголовок -->
 
         <div class="main-buttons">
             <a href="gallery.html" class="main-btn">Фотоархив</a>
             <a href="video.html" class="main-btn">Видеопоздравление</a>
         </div>
 
+        <!-- Таймер до выпускного -->
         <div class="countdown-container">
             <h2>До события осталось:</h2>
             <div id="countdown">
@@ -30,8 +31,9 @@
         </div>
     </div>
 
-    <script src="script.js"></script>   <!-- Основной скрипт -->
-    <script src="countdown.js"></script>  <!-- Скрипт для таймера -->
-    <script src="access.js"></script>  <!-- Скрипт для проверки даты -->
+    <!-- Подключаем все скрипты -->
+    <script src="js/script.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/access.js"></script>  <!-- Для проверки даты -->
 </body>
 </html>
