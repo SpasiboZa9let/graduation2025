@@ -3,40 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Выпускной 2025</title>
+    <title>Форма запроса видео</title>
+    
     <!-- Шрифты -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins :wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
     <!-- Стили -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Фоновая музыка -->
+    <!-- Кнопка возврата -->
+    <a href="index.html" class="back-btn">← Назад</a>
+
+    <!-- Музыка -->
     <audio id="backgroundMusic" loop>
-        <source src="audio/background-music.mp3" type="audio/mpeg">
+        <source src="music.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает аудио.
     </audio>
 
-    <!-- Логотип -->
-    <div class="logo">
-        <h1 class="logo-title">🎉 Выпускной 2025 🎉</h1>
+    <!-- Форма поздравления -->
+    <div class="form-container">
+        <h2 class="form-title">Введите свою фамилию:</h2>
+        <form id="accessForm">
+            <input 
+                type="text" 
+                id="surname" 
+                placeholder="Фамилия (например: Бродецкая)" 
+                autocomplete="off"
+                required
+            >
+            <button type="submit" class="submit-btn">Показать видео</button>
+        </form>
+
+        <div id="spinner" class="spinner" style="display: none;"></div>
+        <div id="videoContainer"></div>
     </div>
 
-    <!-- Основной контент -->
-    <div class="hero">
-        <h2 class="subtitle">До встречи на главном празднике года!</h2>
-        <div class="bell-animation">🔔</div>
-        <div class="countdown-container">
-            <div class="countdown-item"><span id="days">00</span> дней</div>
-            <div class="countdown-item"><span id="hours">00</span> часов</div>
-            <div class="countdown-item"><span id="minutes">00</span> минут</div>
-        </div>
-
-        <div class="buttons">
-            <a href="form.html" class="btn primary-btn">Получи поздравление</a>
-            <a href="gallery.html" class="btn secondary-btn">Архив фото</a>
-        </div>
+    <!-- Таймер (если нужен визуально) -->
+    <div class="countdown-container">
+        <span id="days">00</span> д. 
+        <span id="hours">00</span> ч. 
+        <span id="minutes">00</span> мин.
     </div>
 
-    <!-- Скрипты -->
+    <!-- Скрипт конфетти -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <!-- Скрипт -->
     <script src="script.js"></script>
 </body>
 </html>
