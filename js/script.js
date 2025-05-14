@@ -1,10 +1,12 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('accessForm');
-    const surnameInput = document.getElementById('surname');
-    const videoContainer = document.getElementById('videoContainer');
-    const spinner = document.getElementById('spinner');
+// Обработчик для формы
+document.getElementById("accessForm").addEventListener("submit", function(e) {
+    e.preventDefault();
 
-    const studentData = {
+    // Получаем фамилию из поля ввода
+    const surname = document.getElementById("surname").value.trim().toLowerCase();
+
+    // Данные студентов
+    const students = {
         "бродецкая": {
             "name": "Мария",
             "surname": "Бродецкая",
@@ -22,25 +24,28 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
+    // Проверка, существует ли такой студент
+    if (students[surname]) {
+        // Показать видео
+        const videoContainer = document.getElementById("videoContainer");
+        videoContainer.innerHTML = `<video width="100%" controls>
+                                      <source src="${students[surname].video}" type="video/mp4">
+                                      Ваш браузер не поддерживает видео.
+                                      </video>`;
 
-        const surname = surnameInput.value.trim().toLowerCase();
+        // Показать поздравление
+        videoContainer.innerHTML += `<p>Поздравляем, ${students[surname].name}!</p>`;
 
-        if (studentData[surname]) {
-            spinner.style.display = 'block';
-            setTimeout(() => {
-                spinner.style.display = 'none';
-                const student = studentData[surname];
-                const video = document.createElement('video');
-                video.src = student.video;
-                video.controls = true;
-                video.autoplay = true;
-                videoContainer.innerHTML = '';  // очищаем предыдущие результаты
-                videoContainer.appendChild(video);
-            }, 1000);  // Имитация задержки
-        } else {
-            alert("Видео не найдено для указанной фамилии.");
-        }
-    });
+        // Запуск конфетти
+        confetti();
+
+    } else {
+        // В случае, если фамилия не найдена
+        alert("Не найдено видео для этой фамилии.");
+    }
 });
+
+// Функция для конфетти
+function confetti() {
+    canvasConfetti();
+}
