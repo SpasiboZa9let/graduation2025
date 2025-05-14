@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Поздравление</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Кнопка назад -->
     <a href="index.html" class="back-btn">← Назад</a>
 
+    <!-- Форма для ввода фамилии -->
     <div class="form-container">
         <h2 class="form-title">Введите свою фамилию для поздравления!</h2>
         <form id="accessForm">
@@ -24,6 +24,8 @@
             >
             <button type="submit" class="submit-btn">Показать видео</button>
         </form>
+
+        <!-- Место для загрузки видео -->
         <div id="spinner" class="spinner" style="display: none;"></div>
         <div id="videoContainer"></div>
     </div>
