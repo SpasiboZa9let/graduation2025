@@ -5,31 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Выпускной 2025</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <!-- Анимированный колокольчик -->
-    <div class="bell-container">
-        🔔
+    <!-- Колокольчик -->
+    <div class="bell">🔔</div>
+
+    <!-- Заголовок -->
+    <h1 class="main-title">ВЫПУСКНОЙ 2025</h1>
+
+    <!-- Кнопки -->
+    <div class="main-buttons">
+        <a href="congrats.html" class="main-btn">Поздравление</a>
+        <a href="gallery.html" class="main-btn">Фотоархив</a>
     </div>
 
-    <a href="index.html" class="back-btn">← Назад</a>
-
-    <div class="main-container">
-        <h1>ВЫПУСКНОЙ 2025</h1>
-        <div class="buttons-container">
-            <a href="congrats.html" class="main-btn">ПОЗДРАВЛЕНИЕ</a>
-            <a href="gallery.html" class="main-btn">ФОТОАРХИВ</a>
-        </div>
-    </div>
-
+    <!-- Таймер -->
     <div class="countdown-container">
-        <span id="days">00</span> д. 
-        <span id="hours">00</span> ч. 
-        <span id="minutes">00</span> мин.
+        <p>До выпускного:</p>
+        <div id="countdown"></div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="js/countdown.js"></script>
 </body>
 </html>
