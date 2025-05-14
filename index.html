@@ -4,36 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Выпускной 2025</title>
-    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet"> <!-- Шрифт для праздника -->
-    <link rel="stylesheet" href="css/main.css">  <!-- Основные стили для дизайна -->
-    <link rel="stylesheet" href="css/timer.css"> <!-- Таймер стиль -->
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/timer.css">
 </head>
 <body>
     <div class="container">
-        <!-- Иконка праздника -->
         <div class="icon-container">
-            <span class="celebration-icon">🎉</span> <!-- Смайлик -->
+            <span class="celebration-icon">🎉</span>
         </div>
 
-        <h1 class="main-title">Выпускной 2025</h1> <!-- Главный заголовок -->
+        <h1 class="main-title">Выпускной 2025</h1>
 
         <div class="main-buttons">
-            <a href="gallery.html" class="main-btn">Фотоархив</a>
-            <a href="congrats.html" class="main-btn">Видеопоздравление</a>
+            <a href="gallery.html" class="main-btn" id="gallery">Фотоархив</a>
+            <a href="congrats.html" class="main-btn" id="video">Видеопоздравление</a>
         </div>
 
-        <!-- Таймер до выпускного -->
         <div class="countdown-container">
             <h2>До события осталось:</h2>
             <div id="countdown">
-                <span id="days"></span>:<span id="hours"></span>:<span id="minutes"></span>
+                <span id="days">00</span> : 
+                <span id="hours">00</span> : 
+                <span id="minutes">00</span>
             </div>
         </div>
+
+        <!-- Опционально: скрытый аудиоплеер -->
+        <audio id="backgroundMusic" src="audio/music.mp3" preload="auto" loop></audio>
     </div>
 
-    <!-- Подключаем все скрипты -->
+    <!-- Скрипты -->
     <script src="js/script.js"></script>
     <script src="js/countdown.js"></script>
-    <script src="js/access.js"></script>  <!-- Для проверки даты -->
 </body>
 </html>
