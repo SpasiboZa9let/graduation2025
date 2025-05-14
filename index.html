@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Форма запроса видео</title>
-    
     <!-- Шрифты -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
     <!-- Стили -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <!-- Кнопка возврата -->
@@ -21,7 +19,13 @@
         Ваш браузер не поддерживает аудио.
     </audio>
 
-    <!-- Форма поздравления -->
+    <!-- Главный экран -->
+    <div id="main-screen">
+        <h1>Добро пожаловать!</h1>
+        <p>Введите вашу фамилию ниже, чтобы увидеть поздравление.</p>
+    </div>
+
+    <!-- Форма -->
     <div class="form-container">
         <h2 class="form-title">Введите свою фамилию:</h2>
         <form id="accessForm">
@@ -34,7 +38,6 @@
             >
             <button type="submit" class="submit-btn">Показать видео</button>
         </form>
-
         <div id="spinner" class="spinner" style="display: none;"></div>
         <div id="videoContainer"></div>
     </div>
@@ -50,6 +53,6 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 
     <!-- Скрипт -->
-    <script src="script.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
