@@ -1,71 +1,81 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #ffe5d9, #fcd5ce);
+  background: linear-gradient(to right, #ffe0e0, #fff4e6);
+  color: #333;
   text-align: center;
-  overflow-x: hidden;
 }
 
-.main-title {
-  font-family: 'Sacramento', cursive;
-  font-size: 4rem;
-  color: #fff;
-  margin-top: 60px;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-/* Таймер */
-.countdown-container {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin: 30px 0;
+.main-container {
+  padding: 50px 20px;
 }
 
-.countdown-container div {
-  background: #fff3f0;
-  padding: 15px 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.countdown-container span {
-  font-size: 2.5rem;
-  color: #ff6b6b;
-  display: block;
-}
-
-.countdown-container p {
-  margin: 0;
-  color: #444;
-}
-
-/* Кнопки */
-.main-buttons {
-  margin-top: 40px;
+.button-group {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  align-items: center;
+  margin-top: 40px;
 }
 
 .main-btn {
-  background: #ffb4a2;
+  background: #ff8c94;
   color: white;
-  text-decoration: none;
-  padding: 15px 30px;
-  border-radius: 12px;
-  font-size: 1.3rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  transition: background 0.3s ease;
+  padding: 15px 25px;
+  border-radius: 10px;
+  font-size: 1.2em;
+  transition: background 0.3s;
 }
 
 .main-btn:hover {
-  background: #ff8fa3;
+  background: #ff6b81;
 }
 
-/* Адаптив */
-@media (min-width: 600px) {
-  .main-buttons {
-    flex-direction: row;
-  }
+.countdown-container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 1.5em;
+}
+
+.form-container {
+  padding: 50px 20px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  width: 250px;
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+.submit-btn {
+  padding: 10px 20px;
+  background: #88d8b0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.back-btn {
+  display: block;
+  margin: 20px;
+  font-size: 1.1em;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  border-radius: 10px;
 }
