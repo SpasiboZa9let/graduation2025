@@ -1,30 +1,53 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Главная страница</title>
-  <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выпускной 2025</title>
+    <!-- Подключаем шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <!-- Подключаем стили (путь исправлен) -->
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Добро пожаловать на выпускной!</h1>
-    <div class="buttons">
-      <button id="photoArchiveBtn">Фотоархив</button>
-      <button id="greetingBtn">Поздравление</button>
+    <!-- Кнопка возврата -->
+    <a href="index.html" class="back-btn">← Назад</a>
+
+    <!-- Музыка -->
+    <audio id="backgroundMusic" loop>
+        <source src="audio/music.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает аудио.
+    </audio>
+
+    <!-- Форма ввода фамилии -->
+    <div class="form-container">
+        <h2 class="form-title">Введите свою фамилию для поздравления!</h2>
+        <form id="accessForm">
+            <input 
+                type="text" 
+                id="surname" 
+                placeholder="Фамилия (например: Бродецкая)" 
+                autocomplete="off"
+                required
+            >
+            <button type="submit" class="submit-btn">Показать видео</button>
+        </form>
+        <div id="spinner" class="spinner" style="display: none;"></div>
+        <div id="videoContainer"></div>
     </div>
 
-    <!-- Конфетти при заходе на страницу -->
-    <script>
-      confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 },
-      });
-    </script>
-  </div>
+    <!-- Таймер (для праздника) -->
+    <div class="countdown-container">
+        <span id="days">00</span> д. 
+        <span id="hours">00</span> ч. 
+        <span id="minutes">00</span> мин.
+    </div>
 
-  <!-- Подключаем основной JS -->
-  <script src="js/index.js"></script>
+    <!-- Скрипт конфетти -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    
+    <!-- Подключаем основной скрипт (путь исправлен) -->
+    <script src="scripts/script.js"></script>
 </body>
 </html>
