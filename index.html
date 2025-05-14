@@ -4,34 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Выпускной 2025</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Sacramento&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-
-  <!-- Музыка -->
-  <audio id="backgroundMusic" loop autoplay>
-    <source src="audio/music.mp3" type="audio/mpeg" />
-    Ваш браузер не поддерживает аудио.
+  <audio id="backgroundMusic" loop>
+    <source src="audio/music.mp3" type="audio/mpeg"/>
   </audio>
 
-  <!-- Заголовок -->
-  <h1 class="main-title">🎓 Выпускной 2025 🎉</h1>
+  <div class="main-container">
+    <h1>🎓 Выпускной 2025 🎉</h1>
 
-  <!-- Таймер -->
-  <div class="countdown-container">
-    <div><span id="days">00</span><p>дней</p></div>
-    <div><span id="hours">00</span><p>часов</p></div>
-    <div><span id="minutes">00</span><p>минут</p></div>
+    <div class="countdown-container">
+      <p>До начала:</p>
+      <div class="timer">
+        <span id="days">00</span> д.
+        <span id="hours">00</span> ч.
+        <span id="minutes">00</span> мин.
+      </div>
+    </div>
+
+    <div class="button-group">
+      <a href="congrats.html" class="main-btn">🎥 Поздравление</a>
+      <a href="gallery.html" class="main-btn">📸 Фотоархив</a>
+    </div>
   </div>
 
-  <!-- Кнопки -->
-  <div class="main-buttons">
-    <a href="gallery.html" class="main-btn">📸 Фотоархив</a>
-    <a href="congrats.html" class="main-btn">🎥 Поздравление</a>
-  </div>
-
-  <!-- Конфетти -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <script src="js/index.js"></script>
 </body>
