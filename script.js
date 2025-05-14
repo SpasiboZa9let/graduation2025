@@ -29,88 +29,87 @@ setInterval(() => {
     }
 }, 1000);
 
-// Форма поздравления
-if (document.getElementById('accessForm')) {
-    let students = {};
-    let isDataLoaded = false;
+// Загрузка данных студентов
+let students = {};
+let isDataLoaded = false;
 
-    async function loadStudents() {
-        try {
-            const response = await fetch('students.json');
-            if (!response.ok) throw new Error('Ошибка загрузки данных');
-            students = await response.json();
-            isDataLoaded = true;
-        } catch (error) {
-            alert('Ошибка загрузки данных студентов');
-            console.error(error);
-        }
+async function loadStudents() {
+    try {
+        const response = await fetch('students.json');
+        if (!response.ok) throw new Error('Ошибка загрузки данных');
+        students = await response.json();
+        isDataLoaded = true;
+    } catch (error) {
+        alert('Ошибка загрузки данных студентов');
+        console.error(error);
+    }
+}
+
+loadStudents();
+
+// Обработка формы
+document.getElementById('accessForm')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (!isDataLoaded) {
+        alert('Данные еще загружаются...');
+        return;
     }
 
-    loadStudents();
+    const surname = document.getElementById('surname').value.toLowerCase().trim();
+    const spinner = document.getElementById('spinner');
+    const videoContainer = document.getElementById('videoContainer');
 
-    document.getElementById('accessForm').addEventListener('submit', async (e) => {
-        e.preventDefault();
+    spinner.style.display = 'block';
+    videoContainer.innerHTML = '';
 
-        if (!isDataLoaded) {
-            alert('Данные еще загружаются...');
-            return;
-        }
+    try {
+        if (students[surname]) {
+            const student = students[surname];
 
-        const surname = document.getElementById('surname').value.toLowerCase().trim();
-        const spinner = document.getElementById('spinner');
-        const videoContainer = document.getElementById('videoContainer');
+            // Создаем заголовок
+            const greeting = document.createElement('h2');
+            greeting.textContent = `🎉 Привет, ${student.name}! 🎉`;
+            greeting.className = 'greeting';
 
-        spinner.style.display = 'block';
-        videoContainer.innerHTML = '';
+            // Создаем элемент видео
+            const video = document.createElement('video');
+            video.src = student.video;
+            video.controls = true;
+            video.style.width = '100%';
+            video.style.borderRadius = '10px';
 
-        try {
-            if (students[surname]) {
-                const student = students[surname];
+            // Показываем ошибку, если видео не загружается
+            video.addEventListener('error', () => {
+                console.error(`Ошибка загрузки видео: ${student.video}`);
+                alert('Видео не удалось загрузить. Проверьте путь к файлу.');
+                spinner.style.display = 'none';
+            });
 
-                // Создаем заголовок
-                const greeting = document.createElement('h2');
-                greeting.textContent = `🎉 Привет, ${student.name}! 🎉`;
-                greeting.className = 'greeting';
-
-                // Создаем элемент видео
-                const video = document.createElement('video');
-                video.src = student.video; // Путь к видео из students.json
-                video.controls = true;
-                video.style.width = '100%';
-                video.style.borderRadius = '10px';
-
-                // Показываем ошибку, если видео не загружается
-                video.addEventListener('error', () => {
-                    console.error(`Ошибка загрузки видео: ${student.video}`);
-                    alert('Видео не удалось загрузить. Проверьте путь к файлу.');
-                    spinner.style.display = 'none';
+            // Запускаем конфетти после загрузки видео
+            video.addEventListener('canplay', () => {
+                spinner.style.display = 'none';
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 }
                 });
+            });
 
-                // Запускаем конфетти после загрузки видео
-                video.addEventListener('canplay', () => {
-                    spinner.style.display = 'none';
-                    confetti({
-                        particleCount: 100,
-                        spread: 70,
-                        origin: { y: 0.6 }
-                    });
-                });
+            // Добавляем заголовок и видео в контейнер
+            videoContainer.appendChild(greeting);
+            videoContainer.appendChild(video);
 
-                // Добавляем заголовок и видео в контейнер
-                videoContainer.appendChild(greeting);
-                videoContainer.appendChild(video);
-
-                // Очищаем поле ввода
-                document.getElementById('surname').value = '';
-            } else {
-                throw new Error('Фамилия не найдена');
-            }
-        } catch (error) {
-            spinner.style.display = 'none';
-            alert(error.message);
+            // Очищаем поле ввода
+            document.getElementById('surname').value = '';
+        } else {
+            throw new Error('Фамилия не найдена');
         }
-    });
-}
+    } catch (error) {
+        spinner.style.display = 'none';
+        alert(error.message);
+    }
+});
 
 // Галерея
 if (document.querySelector('.gallery-grid')) {
