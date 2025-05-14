@@ -5,26 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Выпускной 2025</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <div class="main-container">
-        <h1 class="main-title">ВЫПУСКНОЙ 2025</h1>
+    <h1 class="main-title">ВЫПУСКНОЙ 2025</h1>
 
-        <div class="buttons-container">
-            <a href="congrats.html" class="btn">ПОЗДРАВЛЕНИЕ</a>
-            <a href="gallery.html" class="btn">ФОТОАРХИВ</a>
-        </div>
-
-        <!-- Таймер -->
-        <div class="countdown-container">
-            <span id="days">32</span> д. 
-            <span id="hours">00</span> ч. 
-            <span id="minutes">00</span> мин.
-        </div>
+    <div class="main-buttons">
+        <a href="congrats.html" class="main-btn">ПОЗДРАВЛЕНИЕ</a>
+        <a href="gallery.html" class="main-btn">ФОТОАРХИВ</a>
     </div>
 
-    <script src="js/script.js"></script>
+    <div class="countdown-container">
+        <span id="days">00</span> д.
+        <span id="hours">00</span> ч.
+        <span id="minutes">00</span> мин.
+    </div>
+
+    <script>
+        // Таймер обратного отсчета
+        const countdownDate = new Date("May 25, 2025 00:00:00").getTime();
+        const countdownInterval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById("days").textContent = days;
+            document.getElementById("hours").textContent = hours;
+            document.getElementById("minutes").textContent = minutes;
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.querySelector(".countdown-container").textContent = "Событие началось!";
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
