@@ -2,7 +2,9 @@
 const backgroundMusic = document.getElementById('backgroundMusic');
 
 document.addEventListener('DOMContentLoaded', () => {
-    backgroundMusic.play().catch(() => {});
+    backgroundMusic.play().catch(() => {
+        console.warn('Фоновая музыка заблокирована браузером.');
+    });
 });
 
 // Таймер
@@ -35,6 +37,7 @@ if (document.getElementById('accessForm')) {
     async function loadStudents() {
         try {
             const response = await fetch('students.json');
+            if (!response.ok) throw new Error('Ошибка загрузки данных');
             students = await response.json();
             isDataLoaded = true;
         } catch (error) {
@@ -71,7 +74,7 @@ if (document.getElementById('accessForm')) {
 
                 // Создаем элемент видео
                 const video = document.createElement('video');
-                video.src = student.video;
+                video.src = student.video; // Путь к видео из students.json
                 video.controls = true;
                 video.style.width = '100%';
                 video.style.borderRadius = '10px';
