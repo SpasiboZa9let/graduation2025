@@ -1,3 +1,4 @@
+/* Основные стили для страницы */
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #fffafc;
@@ -9,6 +10,81 @@ body {
     min-height: 100vh;
 }
 
+/* Стиль для анимированного колокольчика */
+.bell-container {
+    font-size: 64px;
+    text-align: center;
+    animation: shake 1s infinite;
+    margin-top: 30px;
+}
+
+@keyframes shake {
+    0% { transform: rotate(0); }
+    25% { transform: rotate(15deg); }
+    50% { transform: rotate(0); }
+    75% { transform: rotate(-15deg); }
+    100% { transform: rotate(0); }
+}
+
+/* Стиль для кнопки "Назад" */
+.back-btn {
+    display: inline-block;
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: #f06292;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.back-btn:hover {
+    background-color: #ec407a;
+    transform: scale(1.05);
+}
+
+/* Основной контейнер на главной странице */
+.main-container {
+    text-align: center;
+    margin-top: 60px;
+}
+
+h1 {
+    font-size: 60px;
+    color: #c2185b;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.main-btn {
+    padding: 20px 40px;
+    background-color: #f06292;
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.main-btn:hover {
+    background-color: #ec407a;
+}
+
+/* Таймер */
+.countdown-container {
+    font-size: 24px;
+    color: #c2185b;
+    margin-top: 30px;
+}
+
+/* Стиль для формы */
 .form-container {
     background-color: #ffe6ec;
     border: 4px solid #ffb6c1;
