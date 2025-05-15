@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/timer.css"/>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <div class="logo">🎓 Выпускной 2025</div>
     <nav>
@@ -18,9 +19,10 @@
     </nav>
   </header>
 
+  <!-- Main Content -->
   <main class="container">
     <h1 class="main-title">🎓 Выпускной 2025</h1>
-    <!-- убрали центральные кнопки -->
+
     <div class="countdown-container">
       <h2>До начала праздника осталось:</h2>
       <div class="timer-box" id="countdown">
@@ -29,17 +31,22 @@
         <span id="minutes">00</span> мин
       </div>
     </div>
+
+    <!-- Фоновая музыка -->
+    <audio id="backgroundMusic" src="audio/music.mp3" loop></audio>
   </main>
 
+  <!-- Footer -->
   <footer>
-    &copy; 2025 Выпускной 2025
+    школа прощай
   </footer>
 
-  <!-- 1. Фейерверки при заходе -->
+  <!-- Скрипты -->
+  <!-- 1. Модуль с фейерверками -->
   <script type="module" src="js/index.js"></script>
-  <!-- 2. Основной скрипт (конфетти, музыка) -->
+  <!-- 2. Скрипт для музыки -->
   <script src="js/script.js"></script>
-  <!-- 3. Таймер -->
+  <!-- 3. Скрипт таймера -->
   <script src="js/countdown.js"></script>
 </body>
 </html>
