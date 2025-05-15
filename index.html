@@ -2,32 +2,52 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Выпускной 2025</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Sacramento&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/main.css" />
-  <link rel="stylesheet" href="css/timer.css" />
+  <!-- Шрифты -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Sacramento&display=swap" rel="stylesheet"/>
+  <!-- Общие стили и изумрудная тема -->
+  <link rel="stylesheet" href="css/main.css"/>
+  <!-- Стили таймера -->
+  <link rel="stylesheet" href="css/timer.css"/>
 </head>
 <body>
-  <h1 class="main-title">🎓 ВЫПУСКНОЙ 2025</h1>
+  <!-- Header -->
+  <header>
+    <div class="logo">🎓 Точка роста</div>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="gallery.html">Фотоархив</a>
+      <a href="congrats.html">Поздравление</a>
+    </nav>
+  </header>
 
-  <div class="main-buttons">
-    <a href="congrats.html" class="main-btn">🎥 Поздравление</a>
-    <a href="gallery.html" class="main-btn">📸 Фотоархив</a>
-  </div>
+  <!-- Основной контент -->
+  <main class="container">
+    <h1 class="main-title">ВЫПУСКНОЙ 2025</h1>
 
-  <div class="countdown-container">
-    <div class="timer-box">
-      До праздника осталось:
-      <span id="days">00</span> дн
-      <span id="hours">00</span> ч
-      <span id="minutes">00</span> мин
+    <div class="main-buttons">
+      <a href="congrats.html" class="main-btn">🎥 Поздравление</a>
+      <a href="gallery.html" class="main-btn">📸 Фотоархив</a>
     </div>
-  </div>
+
+    <div class="countdown-container">
+      <h2>До начала праздника осталось:</h2>
+      <div class="timer-box" id="countdown">
+        <span id="days">00</span> дн 
+        <span id="hours">00</span> ч 
+        <span id="minutes">00</span> мин
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Точка роста
+  </footer>
 
   <!-- Скрипты -->
-  <script src="js/countdown.js"></script>
-  <script type="module" src="js/index.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/countdown.js"></script>
 </body>
 </html>
