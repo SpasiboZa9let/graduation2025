@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Поздравление</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Поздравление Выпускной 2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Sacramento&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/main.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-    <a href="index.html" class="back-btn">← Назад</a>
+  <!-- Header -->
+  <header>
+    <div class="logo">🎓 Выпускной 2025</div>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="gallery.html">Фотоархив</a>
+    </nav>
+  </header>
 
+  <!-- Main -->
+  <main class="container">
+    <h1 class="main-title">🎥 Видеопоздравление</h1>
     <div class="form-container">
-        <h2 class="form-title">Введите свою фамилию для поздравления!</h2>
-        <form id="accessForm">
-            <input 
-                type="text" 
-                id="surname" 
-                placeholder="Фамилия" 
-                autocomplete="off"
-                required
-            >
-            <button type="submit" class="submit-btn">Показать видео</button>
-        </form>
-        <div id="spinner" class="spinner" style="display: none;"></div>
-        <div id="videoContainer"></div>
+      <h2 class="form-title">Введите фамилию для доступа</h2>
+      <form id="accessForm">
+        <input type="text" id="surname" placeholder="Фамилия" required>
+        <button type="submit" class="submit-btn">Показать видео</button>
+      </form>
+      <div id="spinner" class="spinner"></div>
+      <div id="videoContainer" class="video-container"></div>
     </div>
+  </main>
 
-    <script src="js/congrats.js"></script>
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Выпускной 2025
+  </footer>
+
+  <script src="js/congrats.js"></script>
 </body>
 </html>
