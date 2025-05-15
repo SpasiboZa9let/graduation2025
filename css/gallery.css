@@ -1,50 +1,27 @@
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: #fffafc;
-  text-align: center;
-  padding: 20px;
-}
-
-.back-btn {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  text-decoration: none;
-  font-size: 18px;
-  background-color: #ffb6c1;
-  padding: 8px 16px;
-  border-radius: 8px;
-  color: white;
-  transition: background 0.3s ease;
-}
-
-.back-btn:hover {
-  background-color: #f06292;
-}
-
+/* ====== GALLERY TITLE ====== */
 .gallery-title {
-  font-size: 36px;
-  color: #c2185b;
-  margin-bottom: 30px;
+  text-align: center;
+  font-family: 'Sacramento', cursive;
+  font-size: 2.5rem;
+  color: #a7ffeb;
+  margin: 40px 0 20px;
 }
 
+/* ====== GALLERY GRID ====== */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 16px;
-  padding: 0 10px;
+  padding: 0 20px 40px;
 }
-
 .gallery-grid img {
   width: 100%;
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+  border: 2px solid #1de9b6;
+  transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
 }
-
-.gallery-grid img:hover,
-.gallery-grid img:focus {
-  transform: scale(1.1);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+.gallery-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
 }
