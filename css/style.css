@@ -1,36 +1,48 @@
-/* ====== FORM CONTAINER ====== */
+/* ====== style.css — стили для страницы формы ====== */
+
+/* Контейнер формы */
 .form-container {
-  background-color: rgba(255,255,255,0.2);
-  border: 2px solid #1de9b6;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 4px solid #1de9b6;       /* Утолщённая рамка */
   border-radius: 12px;
   padding: 30px;
   max-width: 480px;
   margin: 40px auto;
   text-align: center;
   color: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
+/* Заголовок формы */
 .form-title {
   font-size: 1.5rem;
   margin-bottom: 20px;
 }
 
-/* ====== INPUT ====== */
+/* Поле ввода фамилии */
 input#surname {
   width: 100%;
   padding: 12px;
   margin-bottom: 20px;
   border: 2px solid #a7ffeb;
   border-radius: 8px;
-  background: transparent;
-  color: #fff;
+  background: rgba(255, 255, 255, 0.9); /* Светлый фон, чтобы текст был видно */
+  color: #004d40;                       /* Тёмный цвет текста */
   font-size: 1rem;
 }
+
+/* Цвет placeholder */
 input#surname::placeholder {
-  color: #b2dfdb;
+  color: #757575;
 }
 
-/* ====== BUTTON ====== */
+/* Стили при фокусе */
+input#surname:focus {
+  border-color: #00bfa5;
+  outline: none;
+}
+
+/* Кнопка отправки */
 button.submit-btn {
   background-color: #1de9b6;
   color: #004d40;
@@ -38,22 +50,12 @@ button.submit-btn {
   font-size: 1rem;
   border: none;
   border-radius: 8px;
+  font-weight: 600;
   transition: background 0.3s, transform 0.2s;
 }
+
+/* Hover-эффект для кнопки */
 button.submit-btn:hover {
   background-color: #00bfa5;
   transform: scale(1.05);
-}
-
-/* ====== VIDEO CONTAINER ====== */
-#videoContainer {
-  margin-top: 30px;
-}
-#videoContainer video {
-  width: 100%;
-  max-width: 560px;
-  border: 2px solid #a7ffeb;
-  border-radius: 12px;
-  display: block;
-  margin: 0 auto;
 }
