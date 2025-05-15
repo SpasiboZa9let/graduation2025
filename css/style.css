@@ -2,19 +2,27 @@
 
 /* Контейнер формы */
 .form-container {
-  background-color: rgba(255, 255, 255, 0.2);
-  border: 4px solid #1de9b6;       /* Утолщённая рамка */
+  background-color: rgba(29, 233, 182, 0.3);  /* более насыщенный изумруд */
+  border: 4px solid #00bfa5;                   /* утолщённая рамка */
   border-radius: 12px;
   padding: 30px;
   max-width: 480px;
   margin: 40px auto;
   text-align: center;
-  color: #fff;
+  color: #004d40;                              /* тёмный изумрудный текст */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок страницы */
+.main-title {
+  color: #004d40;        /* тёмный изумруд */
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
 /* Заголовок формы */
 .form-title {
+  color: #004d40;        /* тёмный изумруд */
   font-size: 1.5rem;
   margin-bottom: 20px;
 }
@@ -26,17 +34,13 @@ input#surname {
   margin-bottom: 20px;
   border: 2px solid #a7ffeb;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.9); /* Светлый фон, чтобы текст был видно */
-  color: #004d40;                       /* Тёмный цвет текста */
+  background: rgba(255, 255, 255, 0.9);
+  color: #004d40;
   font-size: 1rem;
 }
-
-/* Цвет placeholder */
 input#surname::placeholder {
   color: #757575;
 }
-
-/* Стили при фокусе */
 input#surname:focus {
   border-color: #00bfa5;
   outline: none;
@@ -53,24 +57,35 @@ button.submit-btn {
   font-weight: 600;
   transition: background 0.3s, transform 0.2s;
 }
-
-/* Hover-эффект для кнопки */
 button.submit-btn:hover {
   background-color: #00bfa5;
   transform: scale(1.05);
 }
-/* ====== Спиннер ====== */
+
+/* Спиннер — теперь видим и крутится сразу */
 .spinner {
+  display: block;                           /* показываем сразу */
   border: 4px solid rgba(255, 255, 255, 0.3);
   border-top: 4px solid #1de9b6;
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;      /* бесконечное вращение */
   margin: 20px auto;
 }
-
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
 
+/* Видео-контейнер */
+.video-container {
+  margin-top: 30px;
+}
+.video-container video {
+  width: 100%;
+  max-width: 560px;
+  border: 2px solid #a7ffeb;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+}
