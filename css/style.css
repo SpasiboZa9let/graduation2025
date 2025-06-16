@@ -70,15 +70,18 @@ button.submit-btn:hover {
   to { transform: rotate(360deg); }
 }
 
-/* Контейнер для фото-поздравления (скрыт по-умолчанию) */
+/* Контейнер для фото-поздравления */
 #photoContainer {
-  display: none;
+  display: none;               /* прячем по-умолчанию */
   margin: 30px auto;
   max-width: 600px;
-  display: grid;
+  /* сетка задаётся только при показе через JS */
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 16px;
+  /* включите grid-контекст, когда JS покажет контейнер */
+  display: none;
 }
+
 
 /* Стили для вставленных фото */
 #photoContainer img {
@@ -92,4 +95,9 @@ button.submit-btn:hover {
 #photoContainer img:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* когда нужно показать фото, JS добавит этот класс */
+.photo-grid {
+  display: grid;
 }
