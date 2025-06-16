@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const imageFolder = 'images/';
-  const totalImages = 12; // Укажи количество фото в папке (можно автоматизировать на сервере)
+  const totalImages = 36; // Укажи количество фото в папке (можно автоматизировать на сервере)
 
   const gallery = document.getElementById('gallery');
 
