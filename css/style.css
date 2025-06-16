@@ -1,9 +1,9 @@
-/* ====== style.css — форма и фотопоздравление ====== */
+/* css/style.css — стили для страницы «Фото-поздравление» */
 
-/* Контейнер формы */
+/* ====== КОНТЕЙНЕР ФОРМЫ ====== */
 .form-container {
-  background-color: rgba(29, 233, 182, 0.4); /* более насыщенный изумруд */
-  border: 4px solid #00bfa5;                 /* утолщённая рамка */
+  background-color: rgba(29, 233, 182, 0.4); /* насыщенный изумруд */
+  border: 4px solid #00bfa5;                /* толщина рамки */
   border-radius: 12px;
   padding: 30px;
   max-width: 480px;
@@ -20,7 +20,7 @@
   margin-bottom: 20px;
 }
 
-/* Поле ввода фамилии */
+/* ====== ПОЛЕ ВВОДА ====== */
 input#surname {
   width: 100%;
   padding: 12px;
@@ -39,7 +39,7 @@ input#surname:focus {
   outline: none;
 }
 
-/* Кнопка отправки */
+/* ====== КНОПКА ====== */
 button.submit-btn {
   background-color: #1de9b6;
   color: #004d40;
@@ -55,9 +55,9 @@ button.submit-btn:hover {
   transform: scale(1.05);
 }
 
-/* Спиннер (скрыт по-умолчанию) */
+/* ====== СПИННЕР ====== */
 .spinner {
-  display: none;
+  display: none;                         /* скрыт по умолчанию */
   border: 4px solid rgba(255, 255, 255, 0.3);
   border-top: 4px solid #1de9b6;
   border-radius: 50%;
@@ -70,20 +70,21 @@ button.submit-btn:hover {
   to { transform: rotate(360deg); }
 }
 
-/* Контейнер для фото-поздравления */
+/* ====== КОНТЕЙНЕР ФОТО ====== */
 #photoContainer {
-  display: none;               /* прячем по-умолчанию */
+  display: none;     /* скрыт по умолчанию */
   margin: 30px auto;
   max-width: 600px;
-  /* сетка задаётся только при показе через JS */
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 16px;
-  /* включите grid-контекст, когда JS покажет контейнер */
-  display: none;
 }
 
+/* Включаем сетку при показе */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
 
-/* Стили для вставленных фото */
+/* Стили для фото */
 #photoContainer img {
   width: 100%;
   border: 3px solid #a7ffeb;
@@ -95,9 +96,4 @@ button.submit-btn:hover {
 #photoContainer img:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* когда нужно показать фото, JS добавит этот класс */
-.photo-grid {
-  display: grid;
 }
