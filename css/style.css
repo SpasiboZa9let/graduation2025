@@ -70,28 +70,37 @@ button.submit-btn:hover {
   to { transform: rotate(360deg); }
 }
 
-/* ---------- Контейнер для фото ---------- */
 #photoContainer {
-  display: none;          /* скрыт по умолчанию */
+  /* рамка вокруг всего блока с фото */
+  border: 4px solid #00bfa5;
+  border-radius: 12px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.6);
+  /* центрируем сам контейнер */
   margin: 30px auto;
-  max-width: 600px;
+  max-width: 620px;
 }
-#photoContainer.photo-grid {          /* включаем сетку, когда JS добавит класс */
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+
+/* когда в контейнере есть фото — встаём в flex-центр */
+#photoContainer.photo-grid {
+  display: flex;               /* вместо grid — проще центрировать одно фото */
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;             /* если решите выводить несколько снимков */
   gap: 16px;
 }
 
-/* Стили для вставленных фото */
+/* сам снимок — в собственной тонкой рамке */
 #photoContainer img {
-  width: 100%;
+  max-width: 100%;
   border: 3px solid #a7ffeb;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
 }
+
 #photoContainer img:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
 }
+
