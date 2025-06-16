@@ -1,6 +1,6 @@
-// js/congrats.js
+// js/congrats.js  — итоговая версия с просмотром фото во весь экран
 
-// Карта фамилий → номер фото (1–27)
+/* ---------- Маппинг фамилия → номер фото ---------- */
 const photoMap = {
   "бродецкая":   1,
   "букатина":    2,
@@ -31,37 +31,60 @@ const photoMap = {
   "чупрова":     27
 };
 
-const form           = document.getElementById("accessForm");
-const spinner        = document.getElementById("spinner");
-const photoContainer = document.getElementById("photoContainer");
+/* ---------- DOM-элементы ---------- */
+const form           = document.getElementById('accessForm');
+const spinner        = document.getElementById('spinner');
+const photoContainer = document.getElementById('photoContainer');
 
-form.addEventListener("submit", event => {
-  event.preventDefault();
+/* ---------- Открытие фото на весь экран ---------- */
+function openModal(src) {
+  // если модалка уже открыта — удаляем
+  const old = document.getElementById('photoModal');
+  if (old) old.remove();
 
-  const raw     = document.getElementById("surname").value.trim().toLowerCase();
+  const overlay = document.createElement('div');
+  overlay.id   = 'photoModal';
+  overlay.className = 'photo-modal';
+
+  const imgBig = document.createElement('img');
+  imgBig.src = src;
+  overlay.appendChild(imgBig);
+
+  // клик по оверлею закрывает модалку
+  overlay.addEventListener('click', () => overlay.remove());
+  document.body.appendChild(overlay);
+}
+
+/* ---------- Обработчик формы ---------- */
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const raw     = document.getElementById('surname').value.trim().toLowerCase();
   const surname = raw.split(/\s+/)[0];
   const idx     = photoMap[surname];
 
-  // Показываем спиннер, скрываем контейнер
-  spinner.style.display = "block";
-  photoContainer.classList.remove("photo-grid");
-  photoContainer.innerHTML = "";
+  /* сбрасываем контейнер и показываем спиннер */
+  spinner.style.display = 'block';
+  photoContainer.classList.remove('photo-grid');
+  photoContainer.innerHTML = '';
 
   setTimeout(() => {
-    spinner.style.display = "none";
+    spinner.style.display = 'none';
 
     if (!idx) {
-      alert("Ученик не найден. Проверьте правильность ввода фамилии.");
+      alert('Ученик не найден. Проверьте правильность ввода фамилии.');
       return;
     }
 
-    // Вставляем фото из папки images/congrats/
-    const img = document.createElement("img");
-    img.src = `images/congrats/${idx}.JPG`;
-    img.alt = `Фото поздравление №${idx}`;
-    photoContainer.appendChild(img);
+    /* создаём и вставляем фото из images/congrats/ */
+    const img = document.createElement('img');
+    img.src = `images/congrats/${idx}.JPG`;      // учтён верхний регистр
+    img.alt = `Фото-поздравление №${idx}`;
 
-    // Включаем сетку
-    photoContainer.classList.add("photo-grid");
+    /* клик — открытие во весь экран */
+    img.addEventListener('click', () => openModal(img.src));
+
+    photoContainer.appendChild(img);
+    photoContainer.classList.add('photo-grid');   // включает рамку + центр
   }, 800);
 });
