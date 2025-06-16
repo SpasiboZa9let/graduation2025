@@ -66,7 +66,7 @@ form.addEventListener("submit", event => {
 
     // Вставляем единственное фото
     const img = document.createElement("img");
-    img.src = `images/${idx}.jpg`;  // <--- без "congrats/" !!!
+    img.src = `images/congrats/${idx}.jpg`;  // <--- без "congrats/" !!!
     img.alt = `Фото поздравление №${idx}`;
     photoContainer.appendChild(img);
 
