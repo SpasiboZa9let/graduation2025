@@ -57,7 +57,7 @@ form.addEventListener("submit", event => {
 
     // Вставляем фото из папки images/congrats/
     const img = document.createElement("img");
-    img.src = `/graduation2025/images/congrats/${idx}.jpg`;
+    img.src = `images/congrats/${idx}.JPG`;
     img.alt = `Фото поздравление №${idx}`;
     photoContainer.appendChild(img);
 
