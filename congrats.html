@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <!-- Гарантируем, что все относительные пути будут начинаться с вашего сайта -->
+  <base href="https://spasiboza9let.github.io/graduation2025/">
+  
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Фото-поздравление Выпускной 2025</title>
+  
+  <!-- Шрифты -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Sacramento&display=swap" rel="stylesheet"/>
+  <!-- Общие стили -->
   <link rel="stylesheet" href="css/main.css"/>
+  <!-- Стили формы и фотопоздравления -->
   <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
@@ -29,6 +36,7 @@
       <div id="spinner" class="spinner"></div>
     </div>
 
+    <!-- Контейнер для единственного фото -->
     <div id="photoContainer"></div>
   </main>
 
@@ -36,6 +44,7 @@
     школа прощай
   </footer>
 
+  <!-- Логика фотопоздравления -->
   <script src="js/congrats.js"></script>
 </body>
 </html>
