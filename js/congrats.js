@@ -1,69 +1,66 @@
-const students = {
-  "бродецкая": {
-    "name": "Мария",
-    "surname": "Бродецкая",
-    "video": "videos/brodetskaya.mp4"
-  },
-  "букатина": {
-    "name": "Дарья",
-    "surname": "Букатина",
-    "video": "videos/bukatina.mp4"
-  },
-  "foxold": {
-    "name": "Дорогой ученик",
-    "surname": "Фоксольд",
-    "video": "videos/alexander-ivanov.mp4"
-  }
+// js/congrats.js
+
+// Маппинг фамилий (ключ — фамилия в нижнем регистре) → номер фото
+const photoMap = {
+  "бродецкая":      1,
+  "букатина":       2,
+  "бутенко":        3,
+  "васильев":       4,
+  "дмитрачкова":    5,
+  "канева":         6,
+  "карпушонок":     7,
+  "клинецкая":      8,
+  "кудинов":        9,
+  "курдюкова":     10,
+  "леканова":      11,
+  "малёваный":     12,
+  "мильков":       13,
+  "муслимов":      14,
+  "павлинова":     15,
+  "павлов":        16,
+  "паршин":        17,
+  "подоксенова":   18,
+  "пономарёв":     19,
+  "пономарева":    20,
+  "рагуев":        21,
+  "семкичева":     22,
+  "сидоров":       23,
+  "смирнова":      24,
+  "сокальская":    25,
+  "стром":         26,
+  "чупрова":       27
 };
 
-// Обработчик формы
-document.getElementById("accessForm").addEventListener("submit", function(event) {
+const form           = document.getElementById("accessForm");
+const spinner        = document.getElementById("spinner");
+const photoContainer = document.getElementById("photoContainer");
+
+form.addEventListener("submit", event => {
   event.preventDefault();
-  
-  const surname = document.getElementById("surname").value.toLowerCase().trim();
-  const student = students[surname];
 
-  if (student) {
-    // Показываем спиннер
-    document.getElementById("spinner").style.display = "block";
-    
-    // Ожидаем загрузки видео
-    const video = document.createElement("video");
-    video.src = student.video;
-    video.controls = true;
-    video.autoplay = true;
-    video.onloadeddata = function() {
-      // После загрузки скрываем спиннер и показываем видео
-      document.getElementById("spinner").style.display = "none";
-      document.getElementById("videoContainer").innerHTML = "";
-      document.getElementById("videoContainer").appendChild(video);
-      confetti();
-    };
-  } else {
-    alert("Ученик не найден. Попробуйте снова.");
-  }
-});
+  const raw  = document.getElementById("surname").value.trim().toLowerCase();
+  // Оставляем только слово до пробела (на случай, если ввели имя и фамилию)
+  const surname = raw.split(/\s+/)[0];
+  const idx     = photoMap[surname];
 
-// Функция для конфетти
-function confetti() {
-  const duration = 5 * 1000; // 5 секунд
-  const end = Date.now() + duration;
+  // Скрываем старое и показываем спиннер
+  photoContainer.style.display = "none";
+  photoContainer.innerHTML     = "";
+  spinner.style.display        = "block";
 
-  (function frame() {
-    canvasConfetti({
-      particleCount: 5,
-      angle: 60,
-      spread: 55,
-      origin: { x: 0 }
-    });
-    canvasConfetti({
-      particleCount: 5,
-      angle: 120,
-      spread: 55,
-      origin: { x: 1 }
-    });
-    if (Date.now() < end) {
-      requestAnimationFrame(frame);
+  setTimeout(() => {
+    spinner.style.display = "none";
+
+    if (!idx) {
+      alert("Ученик не найден. Проверьте правильность ввода фамилии.");
+      return;
     }
-  })();
-}
+
+    // Создаём и вставляем единственное фото
+    const img = document.createElement("img");
+    img.src = `images/congrats/${idx}.jpg`;
+    img.alt = `Фото поздравление №${idx}`;
+    photoContainer.appendChild(img);
+    photoContainer.style.display = "grid";
+  }, 800);
+});
