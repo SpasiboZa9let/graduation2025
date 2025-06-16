@@ -31,6 +31,15 @@ const photoMap = {
   "чупрова":       27
 };
 
+c// js/congrats.js
+
+const photoMap = {
+  "бродецкая":   1,
+  "букатина":    2,
+  // … остальные фамилии …
+  "чупрова":     27
+};
+
 const form           = document.getElementById("accessForm");
 const spinner        = document.getElementById("spinner");
 const photoContainer = document.getElementById("photoContainer");
@@ -38,15 +47,14 @@ const photoContainer = document.getElementById("photoContainer");
 form.addEventListener("submit", event => {
   event.preventDefault();
 
-  const raw  = document.getElementById("surname").value.trim().toLowerCase();
-  // Оставляем только слово до пробела (на случай, если ввели имя и фамилию)
+  const raw     = document.getElementById("surname").value.trim().toLowerCase();
   const surname = raw.split(/\s+/)[0];
   const idx     = photoMap[surname];
 
-  // Скрываем старое и показываем спиннер
-  photoContainer.style.display = "none";
-  photoContainer.innerHTML     = "";
-  spinner.style.display        = "block";
+  // Сброс
+  spinner.style.display = "block";
+  photoContainer.classList.remove("photo-grid");
+  photoContainer.innerHTML = "";
 
   setTimeout(() => {
     spinner.style.display = "none";
@@ -56,11 +64,13 @@ form.addEventListener("submit", event => {
       return;
     }
 
-    // Создаём и вставляем единственное фото
+    // Вставляем единственное фото
     const img = document.createElement("img");
-    img.src = `images/congrats/${idx}.jpg`;
+    img.src = `images/${idx}.jpg`;  // <--- без "congrats/" !!!
     img.alt = `Фото поздравление №${idx}`;
     photoContainer.appendChild(img);
-    photoContainer.style.display = "grid";
+
+    // Показываем контейнер как grid
+    photoContainer.classList.add("photo-grid");
   }, 800);
 });
